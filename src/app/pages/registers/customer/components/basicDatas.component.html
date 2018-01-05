@@ -1,4 +1,4 @@
-   <form>
+<form>
 	  <div class="row">
 		  <div class="col-sm-6">
 		    <div class="form-group">
@@ -23,8 +23,9 @@
 	</div>
 	<div class="row">
 		  <div class="col-sm-6">
-		    <div class="form-group">
-		      <label for="email">Email</label>
+		    <label for="divEmail">Email</label>
+		      <div class="input-group" id="divEmail">		     
+		      <span class="input-group-addon input-group-addon-primary addon-left" id="basic-addon1">@</span>
 		      <input type="email" [(ngModel)]="pessoaJuridica.email" class="form-control" id="email" placeholder="Email">
 		    </div>
 		  </div>
@@ -35,6 +36,5 @@
 		    </div>
 		  </div>
 	</div>
-		<button type="submit" class="btn btn-primary">Submit</button>
 </form>
  

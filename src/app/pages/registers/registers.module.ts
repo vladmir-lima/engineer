@@ -1,5 +1,6 @@
 import {NgModule} from '@angular/core';
 import {NgaModule} from '../../theme/nga.module';
+import { AddressComponent } from './address/address.component';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {CommonModule} from '@angular/common';
 import {routing} from './registers.routing';
@@ -19,7 +20,8 @@ import {RegistersComponent} from './registers.component';
   declarations: [
     CustomerComponent,
     BasicDatasComponent,
-    RegistersComponent
+    RegistersComponent,
+    AddressComponent    
   ]
 })
 export class RegistersModule {
