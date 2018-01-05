@@ -25,6 +25,28 @@ export const PAGES_MENU = [
             order: 100
           }
         }
+      },      
+      {
+        path: 'registers',
+        data: {
+          menu: {
+            title: 'Cadastros',
+            icon: 'ion-edit',
+            selected: false,
+            expanded: false,
+            order: 200,
+          }
+        },
+        children: [
+          {
+            path: 'customer',
+            data: {
+              menu: {
+                title: 'Cliente',
+              }
+            }
+          }
+        ]
       },
       {
         path: 'editors',
@@ -34,7 +56,7 @@ export const PAGES_MENU = [
             icon: 'ion-edit',
             selected: false,
             expanded: false,
-            order: 200,
+            order: 300,
           }
         },
         children: [
@@ -56,7 +78,7 @@ export const PAGES_MENU = [
             icon: 'ion-gear-a',
             selected: false,
             expanded: false,
-            order: 250,
+            order: 350,
           }
         },
         children: [
@@ -78,7 +100,7 @@ export const PAGES_MENU = [
             icon: 'ion-stats-bars',
             selected: false,
             expanded: false,
-            order: 300,
+            order: 400,
           }
         },
         children: [
@@ -100,7 +122,7 @@ export const PAGES_MENU = [
             icon: 'ion-android-laptop',
             selected: false,
             expanded: false,
-            order: 400,
+            order: 500,
           }
         },
         children: [
@@ -162,18 +184,10 @@ export const PAGES_MENU = [
             icon: 'ion-compose',
             selected: false,
             expanded: false,
-            order: 500,
+            order: 600,
           }
         },
-        children: [
-          {
-            path: 'cliente',
-            data: {
-              menu: {
-                title: 'general.menu.cliente',
-              }
-            }
-          },
+        children: [         
           {
             path: 'inputs',
             data: {
@@ -200,7 +214,7 @@ export const PAGES_MENU = [
             icon: 'ion-grid',
             selected: false,
             expanded: false,
-            order: 600,
+            order: 700,
           }
         },
         children: [
@@ -246,7 +260,7 @@ export const PAGES_MENU = [
             icon: 'ion-ios-location-outline',
             selected: false,
             expanded: false,
-            order: 700,
+            order: 800,
           }
         },
         children: [
@@ -292,7 +306,7 @@ export const PAGES_MENU = [
             icon: 'ion-document',
             selected: false,
             expanded: false,
-            order: 750,
+            order: 850,
           }
         },
         children: [
@@ -322,7 +336,7 @@ export const PAGES_MENU = [
             icon: 'ion-ios-more',
             selected: false,
             expanded: false,
-            order: 800,
+            order: 900,
           }
         },
         children: [
@@ -364,7 +378,7 @@ export const PAGES_MENU = [
             title: 'general.menu.external_link',
             url: 'http://akveo.com',
             icon: 'ion-android-exit',
-            order: 850,
+            order: 950,
             target: '_blank'
           }
         }

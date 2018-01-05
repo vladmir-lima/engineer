@@ -1,0 +1,40 @@
+   <form>
+	  <div class="row">
+		  <div class="col-sm-6">
+		    <div class="form-group">
+		      <label for="cnpj">CNPJ</label>
+		      <input type="text" [(ngModel)]="pessoaJuridica.cnpj" class="form-control" id="cnpj" placeholder="Cnpj">
+		    </div>
+		  </div>	
+	</div>
+	  <div class="row">
+		  <div class="col-sm-6">
+		    <div class="form-group">
+		      <label for="razaoSocial">Razão Social</label>
+		      <input type="text" [(ngModel)]="pessoaJuridica.razaSocial" class="form-control" id="razaoSocial" placeholder="Razão Social">
+		    </div>
+		  </div>
+		  <div class="col-sm-6">
+		    <div class="form-group">
+		      <label for="nomeFantasia">Nome Fantasia</label>
+		      <input type="text" [(ngModel)]="pessoaJuridica.nomeFantasia" class="form-control" id="nomeFantasia" placeholder="Nome Fantasia">
+		    </div>
+		  </div>
+	</div>
+	<div class="row">
+		  <div class="col-sm-6">
+		    <div class="form-group">
+		      <label for="email">Email</label>
+		      <input type="email" [(ngModel)]="pessoaJuridica.email" class="form-control" id="email" placeholder="Email">
+		    </div>
+		  </div>
+		  <div class="col-sm-6">
+		    <div class="form-group">
+		      <label for="inscricaoEstadual">Inscrição Estadual</label>
+		      <input type="text"  [(ngModel)]="pessoaJuridica.inscricaoEstadual"  class="form-control" id="inscricaoEstadual" placeholder="Inscrição Estadual">
+		    </div>
+		  </div>
+	</div>
+		<button type="submit" class="btn btn-primary">Submit</button>
+</form>
+ 

@@ -21,11 +21,12 @@ export const routes: Routes = [
       {path: '', redirectTo: 'home', pathMatch: 'full'},
       {path: 'home', loadChildren: './home/home.module#HomeModule'},
       {path: 'dashboard', loadChildren: './dashboard/dashboard.module#DashboardModule'},
+      {path: 'registers', loadChildren: './registers/registers.module#RegistersModule'},
       {path: 'editors', loadChildren: './editors/editors.module#EditorsModule'},
       {path: 'components', loadChildren: './components/components.module#ComponentsModule'},
       {path: 'charts', loadChildren: './charts/charts.module#ChartsModule'},
       {path: 'ui', loadChildren: './ui/ui.module#UiModule'},
-      {path: 'forms', loadChildren: './forms/forms.module#FormsModule'},
+      {path: 'forms', loadChildren: './forms/forms.module#FormsModule'},      
       {path: 'tables', loadChildren: './tables/tables.module#TablesModule'},
       {path: 'maps', loadChildren: './maps/maps.module#MapsModule'}
     ]

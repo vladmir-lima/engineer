@@ -11,8 +11,7 @@ const routes: Routes = [
     component: Forms,
     children: [
       { path: 'inputs', component: Inputs },
-      { path: 'layouts', component: Layouts },
-      {path: 'cliente', loadChildren: './cliente/cliente.module#ClienteModule'}
+      { path: 'layouts', component: Layouts }     
     ]
   }
 ];
