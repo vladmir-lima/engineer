@@ -167,6 +167,14 @@ export const PAGES_MENU = [
         },
         children: [
           {
+            path: 'cliente',
+            data: {
+              menu: {
+                title: 'general.menu.cliente',
+              }
+            }
+          },
+          {
             path: 'inputs',
             data: {
               menu: {
