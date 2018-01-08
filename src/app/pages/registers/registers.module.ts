@@ -1,5 +1,7 @@
 import {NgModule} from '@angular/core';
 import {NgaModule} from '../../theme/nga.module';
+import { MaskDirective } from '../directives/mask.directive';
+import { NumberOnlyDirective } from '../directives/numberonly.directive';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {CommonModule} from '@angular/common';
 import {routing} from './registers.routing';
@@ -18,7 +20,9 @@ import { DetailComponent } from './customer/detail/detail.component';
   ],
   declarations: [
     CustomerComponent,
-    RegistersComponent 
+    RegistersComponent,
+    MaskDirective,
+    NumberOnlyDirective
   ] 
 })
 export class RegistersModule {

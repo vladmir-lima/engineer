@@ -1,6 +1,6 @@
 import {Address} from '../address/address';
 import {PessoaJuridica} from './components/pessoajuridica/pessoajuridica';
-import {Component, OnInit} from '@angular/core';
+import {Component, OnInit, HostListener} from '@angular/core';
 import {FormGroup, FormBuilder, Validators, FormControl} from '@angular/forms';
 
 @Component({
@@ -20,7 +20,7 @@ export class CustomerComponent implements OnInit {
   ngOnInit (): void {
 
     this.address = new Address();
-    this.pessoaJuridica = new PessoaJuridica();
+    this.pessoaJuridica = new PessoaJuridica();    
 
     this.customerForm = this.fb.group({
       address: this.fb.group({
@@ -43,5 +43,10 @@ export class CustomerComponent implements OnInit {
     })
 
   }
+  
+  myEvent(event) {
+    console.log(event.target.value);
+  }
+
 }
 
