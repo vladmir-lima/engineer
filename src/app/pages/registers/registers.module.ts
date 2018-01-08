@@ -1,13 +1,12 @@
 import {NgModule} from '@angular/core';
 import {NgaModule} from '../../theme/nga.module';
-import { AddressComponent } from './address/address.component';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {CommonModule} from '@angular/common';
 import {routing} from './registers.routing';
-import {BasicDatasComponent} from './customer/components/basicDatas.component';
 import {CustomerComponent} from './customer/customer.component';
 import {RegistersComponent} from './registers.component';
 
+import { DetailComponent } from './customer/detail/detail.component';
 
 @NgModule({
   imports: [
@@ -19,10 +18,8 @@ import {RegistersComponent} from './registers.component';
   ],
   declarations: [
     CustomerComponent,
-    BasicDatasComponent,
-    RegistersComponent,
-    AddressComponent    
-  ]
+    RegistersComponent 
+  ] 
 })
 export class RegistersModule {
 }

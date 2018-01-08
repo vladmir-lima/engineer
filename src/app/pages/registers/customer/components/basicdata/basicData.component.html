@@ -1,0 +1,40 @@
+<div [formGroup]="basicDataForm" formGroupName="pessoaJuridica">
+	<div class="row">
+		  <div class="col-sm-6">
+		    <div class="form-group has-feedback">
+		      <label for="cnpj">CNPJ</label>
+		      <input type="text" formControlName="cnpj" class="form-control  required" id="cnpj" placeholder="Cnpj">
+		      <span class="glyphicon glyphicon-envelope form-control-feedback"></span>
+		    </div>
+		  </div>	
+	</div>
+	<div class="row">
+		  <div class="col-sm-6">
+		    <div class="form-group">
+		      <label for="razaoSocial">Razão Social</label>
+		      <input type="text" formControlName="razaoSocial" class="form-control" id="razaoSocial" placeholder="Razão Social">
+		    </div>
+		  </div>
+		  <div class="col-sm-6">
+		    <div class="form-group">
+		      <label for="nomeFantasia">Nome Fantasia</label>
+		      <input type="text" formControlName="nomeFantasia" class="form-control" id="nomeFantasia" placeholder="Nome Fantasia">
+		    </div>
+		  </div>
+	</div>
+	<div class="row">
+		  <div class="col-sm-6">
+		    <label for="divEmail">Email</label>
+		      <div class="input-group" id="divEmail">		     
+		      <span class="input-group-addon input-group-addon-primary addon-left" id="basic-addon1">@</span>
+		      <input type="email" formControlName="email" class="form-control" id="email" placeholder="Email">
+		    </div>
+		  </div>
+		  <div class="col-sm-6">
+		    <div class="form-group">
+		      <label for="inscricaoEstadual">Inscrição Estadual</label>
+		      <input type="text"  formControlName="inscricaoEstadual"  class="form-control" id="inscricaoEstadual" placeholder="Inscrição Estadual">
+		    </div>
+		  </div>
+	</div>
+</div>
