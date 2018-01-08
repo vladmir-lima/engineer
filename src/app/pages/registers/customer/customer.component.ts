@@ -20,32 +20,57 @@ export class CustomerComponent implements OnInit {
   ngOnInit (): void {
 
     this.address = new Address();
-    this.pessoaJuridica = new PessoaJuridica();    
+    this.pessoaJuridica = new PessoaJuridica();
 
+    //    this.customerForm = this.fb.group({
+    //      address: this.fb.group({
+    //        cep: [this.address.cep],
+    //        cidade: [this.address.cidade],
+    //        numero: [this.address.numero],
+    //        bairro: [this.address.bairro],
+    //        lote: [''],
+    //        logradouro: [this.address.logradouro],
+    //        complemento: ['']
+    //      }),
+    //      pessoaJuridica: this.fb.group({
+    //        cnpj: [this.pessoaJuridica.cnpj],
+    //        razaoSocial: [this.pessoaJuridica.razaoSocial],
+    //        email: [this.pessoaJuridica.email],
+    //        nomeFantasia: [this.pessoaJuridica.nomeFantasia],
+    //        inscricaoEstadual: ['']
+    //      })
+    //
+    //        
     this.customerForm = this.fb.group({
       address: this.fb.group({
-        cep: [this.address.cep || '', Validators.required],
-        cidade: [this.address.cidade || '', Validators.required],
-        numero: [this.address.numero || '', Validators.required],
-        bairro: [this.address.bairro || '', Validators.required],
+        cep: [this.address.cep],
+        cidade: [this.address.cidade],
+        numero: [this.address.numero],
+        bairro: [this.address.bairro],
         lote: [''],
-        logradouro: [this.address.logradouro || '', Validators.required],
+        logradouro: [this.address.logradouro],
         complemento: ['']
       }),
       pessoaJuridica: this.fb.group({
-        cnpj: [this.pessoaJuridica.cnpj || '', Validators.required],
-        razaoSocial: [this.pessoaJuridica.razaoSocial || '', Validators.required],
-        email: [this.pessoaJuridica.email || '', Validators.required],
-        nomeFantasia: [this.pessoaJuridica.nomeFantasia || '', Validators.required],
+        cnpj: [this.pessoaJuridica.cnpj],
+        razaoSocial: [this.pessoaJuridica.razaoSocial],
+        email: [this.pessoaJuridica.email],
+        nomeFantasia: [this.pessoaJuridica.nomeFantasia],
         inscricaoEstadual: ['']
       })
 
     })
 
   }
-  
-  myEvent(event) {
+
+  myEvent (event) {
     console.log(event.target.value);
+  }
+
+  onsubmit () {
+    console.log(this.customerForm.controls.pessoaJuridica.value);
+    
+
   }
 
 }

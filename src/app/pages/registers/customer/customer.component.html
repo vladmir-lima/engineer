@@ -8,7 +8,7 @@
 					<div class="row">
 						<div class="col-sm-6">
 							<div class="form-group">
-								<label for="cnpj">CNPJ</label> <input type="text" mask="99.999.999/9999-99" (keydown)="myEvent($event)" formControlName="cnpj" class="form-control  required" id="cnpj"
+								<label for="cnpj">CNPJ</label> <input type="text" mask="99.999.999/9999-99" formControlName="cnpj" class="form-control  required" id="cnpj"
 									placeholder="Cnpj"
 								>
 							</div>
@@ -109,7 +109,7 @@
 					</div>
 					<div class="row">
 						<div class="col-md-6">
-							<button [disabled]="!customerForm.valid" type="submit" class="btn btn-primary">Enviar</button>
+							<button [disabled]="!customerForm.valid" type="button" (click)="onsubmit()" class="btn btn-primary">Enviar</button>
 						</div>
 					</div>
 				</div>
