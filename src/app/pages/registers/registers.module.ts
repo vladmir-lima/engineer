@@ -8,8 +8,6 @@ import {routing} from './registers.routing';
 import {CustomerComponent} from './customer/customer.component';
 import {RegistersComponent} from './registers.component';
 
-import { DetailComponent } from './customer/detail/detail.component';
-
 @NgModule({
   imports: [
     NgaModule,

@@ -22,25 +22,25 @@ export class CustomerComponent implements OnInit {
     this.address = new Address();
     this.pessoaJuridica = new PessoaJuridica();
 
-    //    this.customerForm = this.fb.group({
-    //      address: this.fb.group({
-    //        cep: [this.address.cep],
-    //        cidade: [this.address.cidade],
-    //        numero: [this.address.numero],
-    //        bairro: [this.address.bairro],
-    //        lote: [''],
-    //        logradouro: [this.address.logradouro],
-    //        complemento: ['']
-    //      }),
-    //      pessoaJuridica: this.fb.group({
-    //        cnpj: [this.pessoaJuridica.cnpj],
-    //        razaoSocial: [this.pessoaJuridica.razaoSocial],
-    //        email: [this.pessoaJuridica.email],
-    //        nomeFantasia: [this.pessoaJuridica.nomeFantasia],
-    //        inscricaoEstadual: ['']
-    //      })
-    //
-    //        
+   //    this.customerForm = this.fb.group({
+//      address: this.fb.group({
+//        cep: [this.address.cep || '', Validators.required],
+//        cidade: [this.address.cidade || '', Validators.required],
+//        numero: [this.address.numero || '', Validators.required],
+//        bairro: [this.address.bairro || '', Validators.required],
+//        lote: [''],
+//        logradouro: [this.address.logradouro || '', Validators.required],
+//        complemento: ['']
+//      }),
+//      pessoaJuridica: this.fb.group({
+//        cnpj: [this.pessoaJuridica.cnpj || '', Validators.required],
+//        razaoSocial: [this.pessoaJuridica.razaoSocial || '', Validators.required],
+//        email: [this.pessoaJuridica.email || '', Validators.required],
+//        nomeFantasia: [this.pessoaJuridica.nomeFantasia || '', Validators.required],
+//        inscricaoEstadual: ['']
+//      })
+//
+//    })
     this.customerForm = this.fb.group({
       address: this.fb.group({
         cep: [this.address.cep],
@@ -68,9 +68,7 @@ export class CustomerComponent implements OnInit {
   }
 
   onsubmit () {
-    console.log(this.customerForm.controls.pessoaJuridica.value);
-    
-
+    console.log(this.customerForm.controls.pessoaJuridica.value);    
   }
 
 }
