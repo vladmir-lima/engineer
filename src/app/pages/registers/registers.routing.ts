@@ -1,5 +1,6 @@
 import { RegistersComponent } from './registers.component';
-import { CustomerComponent } from './customer/customer.component';
+
+import { ListCostumerComponent } from './customer/listcostumer/listcostumer.component';
 import { Routes, RouterModule } from '@angular/router';
 
 export const routes: Routes = [
@@ -7,7 +8,7 @@ export const routes: Routes = [
     path: '',
     component: RegistersComponent,
     children: [
-      { path: 'customer', component: CustomerComponent }      
+      { path: 'customer', component: ListCostumerComponent }      
     ]
   }
 ];
