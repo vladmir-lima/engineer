@@ -13,11 +13,11 @@ import {NumberOnlyDirective} from '../directives/numberonly.directive';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {CommonModule} from '@angular/common';
 import {routing} from './registers.routing';
-import {CustomerComponent} from './customer/customer.component';
 import {RegistersComponent} from './registers.component';
 
 import {CustomerService} from './customer/service/customer.service';
-import {ListCostumerComponent} from './customer/listcostumer/listcostumer.component';
+import {ListCostumerComponent} from './customer/list/listcostumer.component';
+import {RegisterCustomerComponent} from './customer/register/register.component';
 
 
 
@@ -34,12 +34,12 @@ import {ListCostumerComponent} from './customer/listcostumer/listcostumer.compon
     HotTableModule
   ],
   declarations: [
-    CustomerComponent,
     RegistersComponent,
     MaskDirective,
     NumberOnlyDirective,
     DataFilterPipe,
-    ListCostumerComponent
+    ListCostumerComponent,
+    RegisterCustomerComponent
   ],
   providers: [
     CustomerService

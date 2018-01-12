@@ -10,9 +10,14 @@
                     <option [ngValue]="15">15</option>
                 </select>
                 </div>
+                <div class="row">
+                 	<div class="col-md-6">
+						<button type="button" routerLink="/pages/registers/register-costumer" class="btn btn-primary">Novo Cliente</button>
+					</div>
+				</div>                
                 <div class="col-sm-4">
                     <div class="row">
-                        <label class="col-sm-12 label-control">Sort by</label>
+                        <label class="col-sm-12 label-control">Ordenar por</label>
                     </div>
                     <div class="row">
                         <div class="offset-sm-1 col-sm-5">
@@ -28,9 +33,9 @@
                         <div class="offset-sm-1 col-sm-5">
                             <div class="row">
                                 <select class="form-control input-sm" [(ngModel)]="sortOrder">
-                            <option ngValue="asc">Ascending</option>
-                            <option ngValue="desc">Descending</option>
-                            <option ngValue="badValue">Bad value</option>
+                            <option ngValue="asc">Ascendente</option>
+                            <option ngValue="desc">Descendente</option>
+                            <option ngValue="badValue">Valores Errados</option>
                         </select>
                             </div>
                         </div>

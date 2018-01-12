@@ -1,6 +1,7 @@
 import { RegistersComponent } from './registers.component';
 
-import { ListCostumerComponent } from './customer/listcostumer/listcostumer.component';
+import { ListCostumerComponent } from './customer/list/listcostumer.component';
+import { RegisterCustomerComponent } from './customer/register/register.component';
 import { Routes, RouterModule } from '@angular/router';
 
 export const routes: Routes = [
@@ -8,7 +9,8 @@ export const routes: Routes = [
     path: '',
     component: RegistersComponent,
     children: [
-      { path: 'customer', component: ListCostumerComponent }      
+      { path: 'list-customer', component: ListCostumerComponent },
+      { path: 'register-costumer', component: RegisterCustomerComponent }       
     ]
   }
 ];

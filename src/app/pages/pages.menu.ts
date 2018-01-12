@@ -39,7 +39,7 @@ export const PAGES_MENU = [
         },
         children: [
           {
-            path: 'customer',
+            path: 'list-customer',
             data: {
               menu: {
                 title: 'Cliente',
