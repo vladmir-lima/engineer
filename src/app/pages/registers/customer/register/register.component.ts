@@ -1,7 +1,7 @@
 import {Address} from '../../address/address';
 import {PessoaJuridica} from '../components/pessoajuridica/pessoajuridica';
-import {Component, OnInit, HostListener} from '@angular/core';
-import {FormGroup, FormBuilder, Validators, FormControl} from '@angular/forms';
+import {Component, OnInit, HostListener, OnChanges} from '@angular/core';
+import {FormGroup, FormBuilder, Validators, FormControl, AbstractControl} from '@angular/forms';
 
 @Component({
   selector: 'register-customer',
@@ -14,6 +14,18 @@ export class RegisterCustomerComponent implements OnInit {
   pessoaJuridica: PessoaJuridica;
   address: Address;
 
+  get cnpj() {return this.customerForm.get('pessoaJuridica.cnpj')}
+  get razaoSocial() {return this.customerForm.get('pessoaJuridica.razaoSocial')} 
+  get email() {return this.customerForm.get('pessoaJuridica.email')}
+  get nomeFantasia() {return this.customerForm.get('pessoaJuridica.nomeFantasia')}
+  
+  get cep() {return this.customerForm.get('address.cep')}
+  get cidade() {return this.customerForm.get('address.cidade')}
+  get bairro() {return this.customerForm.get('address.bairro')}
+  get logradouro() {return this.customerForm.get('address.logradouro')}
+  get numero() {return this.customerForm.get('address.numero')}
+
+
   constructor(private fb: FormBuilder) {
   }
 
@@ -22,44 +34,29 @@ export class RegisterCustomerComponent implements OnInit {
     this.address = new Address();
     this.pessoaJuridica = new PessoaJuridica();
 
-   //    this.customerForm = this.fb.group({
-//      address: this.fb.group({
-//        cep: [this.address.cep || '', Validators.required],
-//        cidade: [this.address.cidade || '', Validators.required],
-//        numero: [this.address.numero || '', Validators.required],
-//        bairro: [this.address.bairro || '', Validators.required],
-//        lote: [''],
-//        logradouro: [this.address.logradouro || '', Validators.required],
-//        complemento: ['']
-//      }),
-//      pessoaJuridica: this.fb.group({
-//        cnpj: [this.pessoaJuridica.cnpj || '', Validators.required],
-//        razaoSocial: [this.pessoaJuridica.razaoSocial || '', Validators.required],
-//        email: [this.pessoaJuridica.email || '', Validators.required],
-//        nomeFantasia: [this.pessoaJuridica.nomeFantasia || '', Validators.required],
-//        inscricaoEstadual: ['']
-//      })
-//
-//    })
     this.customerForm = this.fb.group({
       address: this.fb.group({
-        cep: [this.address.cep],
-        cidade: [this.address.cidade],
-        numero: [this.address.numero],
-        bairro: [this.address.bairro],
+        id: [''],
+        cep: ['', Validators.required],
+        cidade: ['', Validators.required],
+        numero: ['', Validators.required],
+        bairro: ['', Validators.required],
         lote: [''],
-        logradouro: [this.address.logradouro],
+        logradouro: ['', Validators.required],
         complemento: ['']
       }),
       pessoaJuridica: this.fb.group({
-        cnpj: [this.pessoaJuridica.cnpj],
-        razaoSocial: [this.pessoaJuridica.razaoSocial],
-        email: [this.pessoaJuridica.email],
-        nomeFantasia: [this.pessoaJuridica.nomeFantasia],
+        id: [''],
+        cnpj: ['', Validators.required],
+        razaoSocial: ['', Validators.required],
+        email: ['', Validators.required],
+        nomeFantasia: ['', Validators.required],
         inscricaoEstadual: ['']
       })
 
     })
+ 
+    //    console.log(this.buildNameFun('vladmir', 'lima', 'carvalho'));
 
   }
 
@@ -68,8 +65,20 @@ export class RegisterCustomerComponent implements OnInit {
   }
 
   onsubmit () {
-    console.log(this.customerForm.controls.pessoaJuridica.value);    
+    //    console.log(this.customerForm.controls.pessoaJuridica.value);
+    //    console.log(this.customerForm.controls.address.value);
   }
+
+  //  ngOnChanges() {
+  //    this.pessoaJuridica = this.customerForm.controls.pessoaJuridica.value;
+  //    this.address = this.customerForm.controls.address.value;
+  //  }
+
+  buildName (firstName: string, ...restOfName: string[]) {
+    return firstName + " " + restOfName.join(" ");
+  }
+
+  buildNameFun: (fname: string, ...rest: string[]) => string = this.buildName;
 
 }
 

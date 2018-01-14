@@ -7,6 +7,7 @@ import { TreeModule } from 'ng2-tree';
 import { routing }       from './components.routing';
 import { Components } from './components.component';
 import { TreeView } from './components/treeView/treeView.component';
+import { ShowErrorsComponent } from './show-errors/show-errors.component';
 
 @NgModule({
   imports: [
@@ -19,6 +20,7 @@ import { TreeView } from './components/treeView/treeView.component';
   declarations: [
     Components,
     TreeView,
+    ShowErrorsComponent,
   ]
 })
 export class ComponentsModule {}

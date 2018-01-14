@@ -7,6 +7,7 @@ import {HotTable, HotTableModule} from 'ng2-handsontable';
 
 import {NgModule} from '@angular/core';
 import {NgaModule} from '../../theme/nga.module';
+import { ShowErrorsComponent } from '../components/show-errors/show-errors.component';
 import {MaskDirective} from '../directives/mask.directive';
 import {NumberOnlyDirective} from '../directives/numberonly.directive';
 
@@ -39,7 +40,8 @@ import {RegisterCustomerComponent} from './customer/register/register.component'
     NumberOnlyDirective,
     DataFilterPipe,
     ListCostumerComponent,
-    RegisterCustomerComponent
+    RegisterCustomerComponent,
+    ShowErrorsComponent
   ],
   providers: [
     CustomerService

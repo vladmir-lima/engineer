@@ -1,5 +1,6 @@
 import { Address } from '../../../address/address';
 export class PessoaJuridica {
+  id: number;
   cnpj: string;
   razaoSocial: string;
   email: string;
