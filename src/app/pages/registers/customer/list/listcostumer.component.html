@@ -43,7 +43,7 @@
             <div class="panel panel-default">
                 <div class="panel-heading">Clientes cadastrados</div>
 
-                <table class="table table-striped" [mfData]="data | dataFilter : filterQuery" #mf="mfDataTable" [mfRowsOnPage]="rowsOnPage" [(mfSortBy)]="sortBy" [(mfSortOrder)]="sortOrder">
+                <table class="table table-striped" [mfData]="pessoas | dataFilter : filterQuery" #mf="mfDataTable" [mfRowsOnPage]="rowsOnPage" [(mfSortBy)]="sortBy" [(mfSortOrder)]="sortOrder">
                     <thead>
                      	<tr>
                             <th colspan="5">

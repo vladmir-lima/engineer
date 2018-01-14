@@ -1,3 +1,4 @@
+import { PessoaJuridica } from '../components/pessoajuridica/pessoajuridica';
 import {Component, OnInit} from '@angular/core';
 import {CustomerService} from '../service/customer.service';
 import { Router } from '@angular/router';
@@ -7,16 +8,17 @@ import { Router } from '@angular/router';
   styleUrls: ['./listcostumer.component.scss']
 })
 export class ListCostumerComponent {
-
-  data;
+   
   filterQuery = "";
   rowsOnPage = 10;
   sortBy = "email";
   sortOrder = "asc";
+  
+  pessoas: PessoaJuridica[];
 
   constructor(private service: CustomerService, private router: Router) {
     this.service.getData().then((data) => {
-      this.data = data;
+      this.pessoas = data;
     });
   }
 
@@ -26,5 +28,6 @@ export class ListCostumerComponent {
 
   sortByWordLength = (a: any) => {
     return a.city.length;
-  }
+  }  
+  
 }

@@ -2,6 +2,7 @@ import {Address} from '../../address/address';
 import {PessoaJuridica} from '../components/pessoajuridica/pessoajuridica';
 import {Component, OnInit, HostListener, OnChanges} from '@angular/core';
 import {FormGroup, FormBuilder, Validators, FormControl, AbstractControl} from '@angular/forms';
+import {CustomerService} from '../service/customer.service';
 
 @Component({
   selector: 'register-customer',
@@ -26,13 +27,14 @@ export class RegisterCustomerComponent implements OnInit {
   get numero() {return this.customerForm.get('address.numero')}
 
 
-  constructor(private fb: FormBuilder) {
+  constructor(private fb: FormBuilder, private service: CustomerService) {
   }
 
   ngOnInit (): void {
 
     this.address = new Address();
-    this.pessoaJuridica = new PessoaJuridica();
+    this.pessoaJuridica = new PessoaJuridica();   
+    
 
     this.customerForm = this.fb.group({
       address: this.fb.group({
@@ -67,6 +69,7 @@ export class RegisterCustomerComponent implements OnInit {
   onsubmit () {
     //    console.log(this.customerForm.controls.pessoaJuridica.value);
     //    console.log(this.customerForm.controls.address.value);
+    this.service.addPessoa(this.customerForm.controls.pessoaJuridica.value);
   }
 
   //  ngOnChanges() {
