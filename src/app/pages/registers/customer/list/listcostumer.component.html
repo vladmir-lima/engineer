@@ -68,7 +68,9 @@
                         <tr *ngFor="let item of mf.data">
                             <td>
                                 <button (click)="remove(item)" class="btn btn-danger glyphicon glyphicon-remove"></button>
-                                <button (click)="selectCustomer(item)" class="btn btn-info glyphicon glyphicon-edit"></button>
+                                <a routerLink="/pages/registers/update-costumer/{{item.id}}">
+      								<span class="badge">{{item.id}}</span> {{item.razaoSocial}}
+      						    </a>
                             </td>
                             <td>{{item.razaoSocial}}</td>
                             <td>{{item.email}}</td>

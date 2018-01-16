@@ -1,10 +1,10 @@
 import {PessoaJuridica} from '../components/pessoajuridica/pessoajuridica';
 import {Injectable, Type} from '@angular/core';
+import { Observable } from 'rxjs';
+import { of } from 'rxjs/observable/of';
 
 @Injectable()
 export class CustomerService {
-
- selectedCustomer: PessoaJuridica;
 
   dataTableData: PessoaJuridica[] = [
     {
@@ -32,10 +32,10 @@ export class CustomerService {
       'cnpj': '70189358149'
     },
     {
-      'id': 1,
+      'id': 5,
       'nomeFantasia': 'Wing',
       'inscricaoEstadual': '1234567',
-      'razaoSocial': 'Vladimir',
+      'razaoSocial': 'Vladmir',
       'email': 'mi.Aliquam@Phasellus.net',
       'cnpj': '70189358149'
     },
@@ -181,11 +181,9 @@ export class CustomerService {
   addPessoa (pessoa: PessoaJuridica) {
     this.dataTableData.push(pessoa);
   }
-
-  selectCustomer (data: PessoaJuridica) {
-    this.selectedCustomer = data;
+  
+  getPessoa(id: number): Observable<PessoaJuridica> {
+   return of(this.dataTableData.find(hero => hero.id === id));
   }
-
-  get pessoaPJ() {return this.selectedCustomer};
 
 }

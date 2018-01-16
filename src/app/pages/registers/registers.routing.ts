@@ -10,7 +10,8 @@ export const routes: Routes = [
     component: RegistersComponent,
     children: [
       { path: 'list-customer', component: ListCostumerComponent },
-      { path: 'register-costumer', component: RegisterCustomerComponent }       
+      { path: 'register-costumer', component: RegisterCustomerComponent },
+      { path: 'update-costumer/:id', component: RegisterCustomerComponent }              
     ]
   }
 ];
