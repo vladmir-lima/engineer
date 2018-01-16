@@ -33,7 +33,7 @@ export class CustomerService {
     },
     {
       'id': 5,
-      'nomeFantasia': 'Wing',
+      'nomeFantasia': 'Vlad',
       'inscricaoEstadual': '1234567',
       'razaoSocial': 'Vladmir',
       'email': 'mi.Aliquam@Phasellus.net',
