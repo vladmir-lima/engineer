@@ -1,5 +1,5 @@
 import { PessoaJuridica } from '../components/pessoajuridica/pessoajuridica';
-import {Component, OnInit} from '@angular/core';
+import {Component, OnInit, Type} from '@angular/core';
 import {CustomerService} from '../service/customer.service';
 import { Router } from '@angular/router';
 @Component({
@@ -29,5 +29,11 @@ export class ListCostumerComponent {
   sortByWordLength = (a: any) => {
     return a.city.length;
   }  
+  
+  selectCustomer(data: PessoaJuridica) {
+    this.service.selectCustomer(data);
+    this.router.navigate(['/pages/registers/register-costumer']);
+  }
+  
   
 }

@@ -1,6 +1,6 @@
 import {Address} from '../../address/address';
 import {PessoaJuridica} from '../components/pessoajuridica/pessoajuridica';
-import {Component, OnInit, HostListener, OnChanges} from '@angular/core';
+import {Component, OnInit, HostListener, OnChanges, Type} from '@angular/core';
 import {FormGroup, FormBuilder, Validators, FormControl, AbstractControl} from '@angular/forms';
 import {CustomerService} from '../service/customer.service';
 
@@ -33,7 +33,7 @@ export class RegisterCustomerComponent implements OnInit {
   ngOnInit (): void {
 
     this.address = new Address();
-    this.pessoaJuridica = new PessoaJuridica();   
+    this.pessoaJuridica = this.service.pessoaPJ || new PessoaJuridica();   
     
 
     this.customerForm = this.fb.group({
