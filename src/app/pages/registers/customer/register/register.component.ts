@@ -16,36 +16,35 @@ export class RegisterCustomerComponent implements OnInit {
   pessoaJuridica: PessoaJuridica;
   address: Address;
 
-  get cnpj() {return this.customerForm.get('pessoaJuridica.cnpj')}
-  get razaoSocial() {return this.customerForm.get('pessoaJuridica.razaoSocial')}
-  get email() {return this.customerForm.get('pessoaJuridica.email')}
-  get nomeFantasia() {return this.customerForm.get('pessoaJuridica.nomeFantasia')}
+  get cnpj () {return this.customerForm.get('pessoaJuridica.cnpj')}
+  get razaoSocial () {return this.customerForm.get('pessoaJuridica.razaoSocial')}
+  get email () {return this.customerForm.get('pessoaJuridica.email')}
+  get nomeFantasia () {return this.customerForm.get('pessoaJuridica.nomeFantasia')}
 
-  get cep() {return this.customerForm.get('address.cep')}
-  get cidade() {return this.customerForm.get('address.cidade')}
-  get bairro() {return this.customerForm.get('address.bairro')}
-  get logradouro() {return this.customerForm.get('address.logradouro')}
-  get numero() {return this.customerForm.get('address.numero')}
+  get cep () {return this.customerForm.get('address.cep')}
+  get cidade () {return this.customerForm.get('address.cidade')}
+  get bairro () {return this.customerForm.get('address.bairro')}
+  get logradouro () {return this.customerForm.get('address.logradouro')}
+  get numero () {return this.customerForm.get('address.numero')}
 
 
   constructor(private fb: FormBuilder, private service: CustomerService, private router: ActivatedRoute) {
   }
 
-  ngOnInit(): void {
-
-    this.address = new Address();
+  ngOnInit (): void {
+   
     this.getPessoa();
 
     this.customerForm = this.fb.group({
       address: this.fb.group({
-        id: [''],
-        cep: ['', Validators.required],
-        cidade: ['', Validators.required],
-        numero: ['', Validators.required],
-        bairro: ['', Validators.required],
-        lote: [''],
-        logradouro: ['', Validators.required],
-        complemento: ['']
+        id: [this.pessoaJuridica.address.id || ''],
+        cep: [this.pessoaJuridica.address.cep || '', Validators.required],
+        cidade: [this.pessoaJuridica.address.cidade || '', Validators.required],
+        numero: [this.pessoaJuridica.address.numero || '', Validators.required],
+        bairro: [this.pessoaJuridica.address.bairro || '', Validators.required],
+        lote: [this.pessoaJuridica.address.lote || ''],
+        logradouro: [this.pessoaJuridica.address.logradouro || '', Validators.required],
+        complemento: [this.pessoaJuridica.address.complemento || '']
       }),
       pessoaJuridica: this.fb.group({
         id: [this.pessoaJuridica.id || ''],
@@ -62,31 +61,37 @@ export class RegisterCustomerComponent implements OnInit {
 
   }
 
-  myEvent(event) {
+  myEvent (event) {
     console.log(event.target.value);
   }
 
-  onsubmit() {
+  onsubmit () {
     //    console.log(this.customerForm.controls.pessoaJuridica.value);
     //    console.log(this.customerForm.controls.address.value);
     this.service.addPessoa(this.customerForm.controls.pessoaJuridica.value);
   }
+  
 
   //  ngOnChanges() {
   //    this.pessoaJuridica = this.customerForm.controls.pessoaJuridica.value;
   //    this.address = this.customerForm.controls.address.value;
   //  }
 
-  buildName(firstName: string, ...restOfName: string[]) {
+
+  buildName (firstName: string, ...restOfName: string[]) {
     return firstName + " " + restOfName.join(" ");
   }
 
   buildNameFun: (fname: string, ...rest: string[]) => string = this.buildName;
 
-  getPessoa(): void {
-      const id = +this.router.snapshot.paramMap.get('id');   
+  getPessoa (): void {
+    const id = +this.router.snapshot.paramMap.get('id');
+    if (id) {
       this.service.getPessoa(id)
         .subscribe(pessoaJuridica => this.pessoaJuridica = pessoaJuridica);
+    } else {
+      this.pessoaJuridica = new PessoaJuridica();
+    }
   }
 
 }

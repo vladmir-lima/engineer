@@ -1,3 +1,4 @@
+import { Address } from '../../address/address';
 import {PessoaJuridica} from '../components/pessoajuridica/pessoajuridica';
 import {Injectable, Type} from '@angular/core';
 import { Observable } from 'rxjs';
@@ -37,8 +38,18 @@ export class CustomerService {
       'inscricaoEstadual': '1234567',
       'razaoSocial': 'Vladmir',
       'email': 'mi.Aliquam@Phasellus.net',
-      'cnpj': '70189358149'
-    },
+      'cnpj': '74.040.000/0000-00',
+       'address': {
+          'cep': '74840395',
+           'numero': 2,
+           'cidade': 'Goiânia',
+           'bairro': 'Parque Amazônia',
+           'lote': '8',
+           'id': 1,
+           'logradouro': 'Rua Belém',
+           'complemento': 'Próximo a praça da feira'
+     }
+    },   
     {
       'id': 1,
       'nomeFantasia': 'Wing',

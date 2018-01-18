@@ -1,5 +1,10 @@
-import { Address } from '../../../address/address';
+import {Address} from '../../../address/address';
 export class PessoaJuridica {
+
+  constructor(address?: Address) {
+    this.addAddress(address);
+  }
+
   id: number;
   cnpj: string;
   razaoSocial: string;
@@ -8,6 +13,7 @@ export class PessoaJuridica {
   inscricaoEstadual: string;
   address?: Address;
   addAddress?(data: Address) {
-    this.address = data;
+    this.address = data || new Address();
   }
+
 }
