@@ -7,9 +7,10 @@ import {HotTable, HotTableModule} from 'ng2-handsontable';
 
 import {NgModule} from '@angular/core';
 import {NgaModule} from '../../theme/nga.module';
-import { ShowErrorsComponent } from '../components/show-errors/show-errors.component';
+import {ShowErrorsComponent} from '../components/show-errors/show-errors.component';
 import {MaskDirective} from '../directives/mask.directive';
 import {NumberOnlyDirective} from '../directives/numberonly.directive';
+import { AddressComponent } from './address/address.component';
 
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {CommonModule} from '@angular/common';
@@ -19,7 +20,11 @@ import {RegistersComponent} from './registers.component';
 import {CustomerService} from './customer/service/customer.service';
 import {ListCostumerComponent} from './customer/list/listcostumer.component';
 import {RegisterCustomerComponent} from './customer/register/register.component';
-
+import { DynamicControlService } from './dynamic-domain-form/service/dynamic-control-service';
+import {DynamicFormControlComponent} from './dynamic-domain-form/register/dynamic-domain-control-form-component';
+import {DynamicDomainFormComponent} from './dynamic-domain-form/register/dynamic-domain-form.component';
+import {DynamicRootFormComponent} from './dynamic-domain-form/register/dynamic-root-form.component';
+import { DynamicService } from './dynamic-domain-form/service/dynamic.service';
 
 
 @NgModule({
@@ -41,10 +46,16 @@ import {RegisterCustomerComponent} from './customer/register/register.component'
     DataFilterPipe,
     ListCostumerComponent,
     RegisterCustomerComponent,
-    ShowErrorsComponent
+    ShowErrorsComponent,
+    DynamicDomainFormComponent,
+    DynamicFormControlComponent,
+    DynamicRootFormComponent,
+    AddressComponent
   ],
   providers: [
-    CustomerService
+    CustomerService,
+    DynamicControlService,
+    DynamicService
   ]
 })
 export class RegistersModule {

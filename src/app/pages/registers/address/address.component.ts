@@ -1,5 +1,5 @@
-import { PessoaJuridica } from '../customer/components/pessoajuridica/pessoajuridica';
-import {Address} from './address';
+import {PessoaJuridica} from '../customer/components/pessoajuridica/pessoajuridica';
+import { Address } from './address';
 import {Component, OnInit, Input} from '@angular/core';
 import {FormBuilder, Validators, FormGroup} from '@angular/forms';
 
@@ -9,34 +9,32 @@ import {FormBuilder, Validators, FormGroup} from '@angular/forms';
 })
 export class AddressComponent implements OnInit {
 
- @Input('address')
-  address: Address;
-  
-  @Input('customerForm')
-  customerForm: FormGroup;
+  @Input() form: FormGroup;
+  @Input() address: Address;
 
-  addressForm: FormGroup;
+  get cep() {return this.form.get('address.cep')}
+  get cidade() {return this.form.get('address.cidade')}
+  get bairro() {return this.form.get('address.bairro')}
+  get logradouro() {return this.form.get('address.logradouro')}
+  get numero() {return this.form.get('address.numero')}
 
   constructor(private fb: FormBuilder) {
   }
 
-
-  ngOnInit () {   
-    this.addressForm = this.toFormGroup(this.address);
-     this.customerForm.addControl('address', this.addressForm);
+  ngOnInit() {    
+    if (!this.address) {
+      this.address = new Address();
+    }
+    this.form.addControl('address', this.fb.group({     
+        id: [this.address.id || ''],
+        cep: [this.address.cep || '', Validators.required],
+        cidade: [this.address.cidade || '', Validators.required],
+        numero: [this.address.numero || '', Validators.required],
+        bairro: [this.address.bairro || '', Validators.required],
+        lote: [this.address.lote || ''],
+        logradouro: [this.address.logradouro || '', Validators.required],
+        complemento: [this.address.complemento || '']     
+    }))
   }
 
-  private toFormGroup (data: Address) {
-    const formGroup = this.fb.group({
-      cep: [data.cep || '', Validators.required],
-      cidade: [data.cidade || '', Validators.required],
-      numero: [data.numero || '', Validators.required],
-      bairro: [data.bairro || '', Validators.required],
-      lote: [data.lote],
-      logradouro: [data.logradouro || '', Validators.required],
-      complemento: [data.complemento]
-    });
-
-    return formGroup;
-  }
 }

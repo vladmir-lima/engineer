@@ -45,6 +45,14 @@ export const PAGES_MENU = [
                 title: 'Cliente',
               }
             }
+          },
+          {
+            path: 'list-expense',
+            data: {
+              menu: {
+                title: 'Despesas',
+              }
+            }
           }
         ]
       },

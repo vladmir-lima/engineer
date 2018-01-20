@@ -1,51 +1,62 @@
- <div [formGroup]="addressForm" formGroupName="address">
-	 <div class="row">
-		  <div class="col-md-4">
-		    <div class="form-group">
-		      <label for="cep">CEP</label>
-		      <input type="text" formControlName="cep" class="form-control" id="cep" placeholder="cep">
-		    </div>
-		  </div>	
-		  <div class="col-md-4">
-		    <div class="form-group">
-		      <label for="cidade">Cidade</label>
-		      <input type="text" formControlName="cidade" class="form-control" id="cidade" placeholder="Cidade">
-		    </div>
-		  </div>
-		  <div class="col-md-4">
-		    <div class="form-group">
-		      <label for="bairro">Bairro</label>
-		      <input type="text" formControlName="bairro" class="form-control" id="bairro" placeholder="Bairro">
-		    </div>
-		  </div>
-	</div>	
-	<div class="row">
-		  <div class="col-md-4">
-		    <div class="form-group">
-		      <label for="numero">Número</label>
-		      <input type="text" formControlName="numero" class="form-control" id="numero" placeholder="Número">
-		    </div>
-		  </div>
-		  <div class="col-md-4">
-		    <div class="form-group">
-		      <label for="lote">Lote</label>
-		      <input type="text" formControlName="lote" class="form-control" id="lote" placeholder="Lote">
-		    </div>
-		  </div>		 
+<div [formGroup]="form">
+	<div formGroupName="address">	
+		<div class="row">
+			<div class="col-md-4">
+				<div class="form-group">
+					<label for="cep">CEP</label> <input type="text" mask="99999-999" formControlName="cep" class="form-control" id="cep" placeholder="cep">
+					<show-errors [control]="cep"></show-errors>		
+				</div>
+			</div>
+			<div class="col-md-4">
+				<div class="form-group">
+					<label for="cidade">Cidade</label> <input type="text" formControlName="cidade" class="form-control" id="cidade"
+						placeholder="Cidade"
+					>
+					<show-errors [control]="cidade"></show-errors>		
+				</div>
+			</div>
+			<div class="col-md-4">
+				<div class="form-group">
+					<label for="bairro">Bairro</label> <input type="text" formControlName="bairro" class="form-control" id="bairro"
+						placeholder="Bairro"
+					>
+					<show-errors [control]="bairro"></show-errors>		
+				</div>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-md-4">
+				<div class="form-group">
+					<label for="numero">Número</label> <input type="text" numberOnly formControlName="numero" class="form-control" id="numero"
+						placeholder="Número"
+					>
+					<show-errors [control]="numero"></show-errors>		
+				</div>
+			</div>
+			<div class="col-md-4">
+				<div class="form-group">
+					<label for="lote">Lote</label> <input type="text" formControlName="lote" class="form-control" id="lote"
+						placeholder="Lote"
+					>
+				</div>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-md-6">
+				<div class="form-group">
+					<label for="logradouro">Logradouro</label> <input type="text" formControlName="logradouro" class="form-control"
+						id="logradouro" placeholder="Logradouro"
+					>
+					<show-errors [control]="logradouro"></show-errors>		
+				</div>
+			</div>
+			<div class="col-md-6">
+				<div class="form-group">
+					<label for="complemento">Complemento</label> <input type="text" formControlName="complemento" class="form-control"
+						id="complemento" placeholder="Complemento"
+					>
+				</div>
+			</div>
+		</div>	
 	</div>
-	<div class="row">
-	  <div class="col-md-6">
-	    <div class="form-group">
-	      <label for="logradouro">Logradouro</label>
-	      <input type="text" formControlName="logradouro" class="form-control" id="logradouro" placeholder="Logradouro">
-	    </div>
-	  </div>
-	  <div class="col-md-6">
-	    <div class="form-group">
-	      <label for="complemento">Complemento</label>
-	      <input type="text" formControlName="complemento" class="form-control" id="complemento" placeholder="Complemento">
-	    </div>
-	  </div>
-</div>	
 </div>
- 

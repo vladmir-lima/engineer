@@ -21,13 +21,6 @@ export class RegisterCustomerComponent implements OnInit {
   get email () {return this.customerForm.get('pessoaJuridica.email')}
   get nomeFantasia () {return this.customerForm.get('pessoaJuridica.nomeFantasia')}
 
-  get cep () {return this.customerForm.get('address.cep')}
-  get cidade () {return this.customerForm.get('address.cidade')}
-  get bairro () {return this.customerForm.get('address.bairro')}
-  get logradouro () {return this.customerForm.get('address.logradouro')}
-  get numero () {return this.customerForm.get('address.numero')}
-
-
   constructor(private fb: FormBuilder, private service: CustomerService, private router: ActivatedRoute) {
   }
 
@@ -36,16 +29,6 @@ export class RegisterCustomerComponent implements OnInit {
     this.getPessoa();
 
     this.customerForm = this.fb.group({
-      address: this.fb.group({
-        id: [this.pessoaJuridica.address.id || ''],
-        cep: [this.pessoaJuridica.address.cep || '', Validators.required],
-        cidade: [this.pessoaJuridica.address.cidade || '', Validators.required],
-        numero: [this.pessoaJuridica.address.numero || '', Validators.required],
-        bairro: [this.pessoaJuridica.address.bairro || '', Validators.required],
-        lote: [this.pessoaJuridica.address.lote || ''],
-        logradouro: [this.pessoaJuridica.address.logradouro || '', Validators.required],
-        complemento: [this.pessoaJuridica.address.complemento || '']
-      }),
       pessoaJuridica: this.fb.group({
         id: [this.pessoaJuridica.id || ''],
         cnpj: [this.pessoaJuridica.cnpj || '', Validators.required],
