@@ -3,7 +3,7 @@ import {Component} from '@angular/core';
 
 @Component({
   selector: 'dynamic-root',
-  templateUrl: './dynamic-root-form.component.html' 
+  templateUrl: './dynamic.root.form.component.html' 
 })
 export class DynamicRootFormComponent {
   components: any[];

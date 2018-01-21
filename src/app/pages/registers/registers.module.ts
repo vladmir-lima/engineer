@@ -20,11 +20,13 @@ import {RegistersComponent} from './registers.component';
 import {CustomerService} from './customer/service/customer.service';
 import {ListCostumerComponent} from './customer/list/listcostumer.component';
 import {RegisterCustomerComponent} from './customer/register/register.component';
-import { DynamicControlService } from './dynamic-domain-form/service/dynamic-control-service';
-import {DynamicFormControlComponent} from './dynamic-domain-form/register/dynamic-domain-control-form-component';
-import {DynamicDomainFormComponent} from './dynamic-domain-form/register/dynamic-domain-form.component';
-import {DynamicRootFormComponent} from './dynamic-domain-form/register/dynamic-root-form.component';
+import { DynamicControlService } from './dynamic-domain-form/service/dynamic.control.service';
+import {DynamicFormControlComponent} from './dynamic-domain-form/register/dynamic.domain.control.form.component';
+import {DynamicDomainFormComponent} from './dynamic-domain-form/register/dynamic.domain.form.component';
+import {DynamicRootFormComponent} from './dynamic-domain-form/register/dynamic.root.form.component';
 import { DynamicService } from './dynamic-domain-form/service/dynamic.service';
+import { ListDynamicComponent } from './dynamic-domain-form/list/list.dynamic.component';
+import { ListDomainService } from './dynamic-domain-form/service/list.domain.service';
 
 
 @NgModule({
@@ -50,12 +52,14 @@ import { DynamicService } from './dynamic-domain-form/service/dynamic.service';
     DynamicDomainFormComponent,
     DynamicFormControlComponent,
     DynamicRootFormComponent,
-    AddressComponent
+    AddressComponent,
+    ListDynamicComponent
   ],
   providers: [
     CustomerService,
     DynamicControlService,
-    DynamicService
+    DynamicService,
+    ListDomainService
   ]
 })
 export class RegistersModule {

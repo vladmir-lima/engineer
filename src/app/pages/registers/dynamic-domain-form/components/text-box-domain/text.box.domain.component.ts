@@ -1,4 +1,4 @@
-import { TextBoxDomainBase } from './text-box-domain-base';
+import { TextBoxDomainBase } from './text.box.domain.base';
 
 export class TextBoxDomainComponent extends TextBoxDomainBase<string> {
 

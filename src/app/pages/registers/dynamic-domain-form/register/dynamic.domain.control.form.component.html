@@ -1,0 +1,15 @@
+<div [formGroup]="form">
+	<div class="row">
+		<div class="col-md-8">
+			<div class="form-group">
+				<label [attr.for]="component.key">{{component.label}}</label>
+				<div [ngSwitch]="component.controlType">
+					<input *ngSwitchCase="'textbox'" [placeholder]="component.placeHolder" class="form-control required"
+						[formControlName]="component.key" [id]="component.key" [type]="component.type"
+					>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="errorMessage" *ngIf="!isValid">{{component.label}} is required</div>
+</div>

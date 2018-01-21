@@ -1,7 +1,7 @@
 import {Injectable} from '@angular/core';
 
-import {TextBoxDomainBase} from '../components/text-box-domain/text-box-domain-base';
-import {TextBoxDomainComponent} from '../components/text-box-domain/text-box-domain.component';
+import {TextBoxDomainBase} from '../components/text-box-domain/text.box.domain.base';
+import {TextBoxDomainComponent} from '../components/text-box-domain/text.box.domain.component';
 
 @Injectable()
 export class DynamicService {
@@ -14,18 +14,11 @@ export class DynamicService {
 
       new TextBoxDomainComponent({
         key: 'description',
-        label: 'Descrição',
-        value: 'Despesas com pessoal',
+        label: 'Descrição',        
+        placeHolder: 'Digite aqui',
         required: true,
         order: 1
-      }),
-
-      new TextBoxDomainComponent({
-        key: 'emailAddress',
-        label: 'Email',
-        type: 'email',
-        order: 2
-      })
+      })     
     ];
 
     return components.sort((a, b) => a.order - b.order);

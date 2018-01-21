@@ -1,7 +1,7 @@
 import {Injectable} from '@angular/core';
 import {FormControl, FormGroup, Validators} from '@angular/forms';
 
-import {TextBoxDomainBase} from '../components/text-box-domain/text-box-domain-base';
+import {TextBoxDomainBase} from '../components/text-box-domain/text.box.domain.base';
 
 @Injectable()
 export class DynamicControlService {
