@@ -38,7 +38,7 @@
                 </div>
             </div>
 	         <div class="row pull-right">               
-				<button type="button" routerLink="/pages/registers/register-costumer" class="btn btn-primary">Novo Cliente</button>				
+				<button type="button" routerLink="../register-costumer" class="btn btn-primary">Novo Cliente</button>				
 			</div>   
             <div class="panel panel-default">
                 <div class="panel-heading">Clientes cadastrados</div>
@@ -68,7 +68,7 @@
                         <tr *ngFor="let item of mf.data">
                             <td>
                                 <button (click)="remove(item)" class="btn btn-danger glyphicon glyphicon-remove"></button>
-                                <a routerLink="/pages/registers/update-costumer/{{item.id}}">
+                                <a routerLink="../update-costumer/{{item.id}}">
       								<span class="badge">{{item.id}}</span> {{item.razaoSocial}}
       						    </a>
                             </td>

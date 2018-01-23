@@ -1,3 +1,4 @@
+import { DymanicDomainEnum } from '../components/dymanic.domain.enum';
 import {ListDomainBase} from '../components/text-box-domain/list.domain.base';
 import {ListExpenseDomainComponent} from '../components/text-box-domain/list.expense.domain.component';
 import {Injectable, Type} from '@angular/core';
@@ -18,16 +19,30 @@ export class ListDomainService {
     },
     {
       'id': 3,
-      'description': 'Locação de equipamentos'
+      'description': 'Segurança'
+    },
+    {
+      'id': 4,
+      'description': 'MATERIAIS DE APLICAÇÃO NA OBRA'
+    },
+    {
+      'id': 5,
+      'description': 'ADMINISTRAÇÃO'
+    },
+    {
+      'id': 6,
+      'description': 'MANUTENÇÃO EM GERAL'
     }
 
   ];
 
-  getData(): Promise<ListDomainBase<string>[]> {
+  getData(dType: DymanicDomainEnum): Promise<ListDomainBase<string>[]> {
     return new Promise((resolve, reject) => {
       setTimeout(() => {
-        resolve(this.dataTableDataExpenses);
-      }, 2000);
+        if (dType === DymanicDomainEnum.EXPENSE) {        
+          resolve(this.dataTableDataExpenses);
+        }        
+      }, 500);
     });
   }
 

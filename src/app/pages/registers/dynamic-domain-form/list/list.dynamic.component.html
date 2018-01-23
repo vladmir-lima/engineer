@@ -36,7 +36,7 @@
                 </div>
             </div>
 	         <div class="row pull-right">               
-				<button type="button" routerLink="/pages/dynamic-domain-form/register-dynamic" class="btn btn-primary">Novo Cliente</button>				
+				<button type="button" routerLink="../register-dynamic" class="btn btn-primary">Novo Cliente</button>				
 			</div>   
             <div class="panel panel-default">
                 <div class="panel-heading">Registros cadastrados</div>
@@ -44,14 +44,14 @@
                 <table class="table table-striped" [mfData]="lista | dataFilter : filterQuery" #mf="mfDataTable" [mfRowsOnPage]="rowsOnPage" [(mfSortBy)]="sortBy" [(mfSortOrder)]="sortOrder">
                     <thead>
                      	<tr>
-                            <th colspan="5">
+                            <th colspan="2">
                                 Filtro por Descrição:
                                 <input class="form-control" [(ngModel)]="filterQuery" />
                             </th>
                         </tr>
                         <tr>
-                            <th style="width: 10%"></th>
-                            <th style="width: 20%">
+                            <th style="width: 20%"></th>
+                            <th style="width: 80%">
                                 <mfDefaultSorter by="description">Descrição</mfDefaultSorter>
                             </th>                                              
                         </tr>                       
@@ -59,8 +59,8 @@
                     <tbody>
                         <tr *ngFor="let item of mf.data">
                             <td>
-                                <button (click)="remove(item)" class="btn btn-danger glyphicon glyphicon-remove"></button>
-                                <a routerLink="/pages/dynamic-domain-form/update-costumer/{{item.id}}">
+                                <button class="btn btn-danger glyphicon glyphicon-remove"></button>
+                                <a routerLink="../update-dynamic/{{item.id}}">
       								<span class="badge">{{item.id}}</span> {{item.description}}
       						    </a>
                             </td>
@@ -69,7 +69,7 @@
                     </tbody>
                     <tfoot>
                         <tr>
-                            <td colspan="5">
+                            <td colspan="2">
                                 <mfBootstrapPaginator [rowsOnPageSet]="[5,10,15]"></mfBootstrapPaginator>
                             </td>
                         </tr>
