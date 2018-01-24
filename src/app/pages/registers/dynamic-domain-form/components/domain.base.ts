@@ -1,4 +1,4 @@
-export class ListDomainBase<T>{
+export class DomainBase<T>{
   id: number;
   description: T;
 

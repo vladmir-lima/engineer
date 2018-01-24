@@ -1,5 +1,5 @@
 import { DymanicDomainEnum } from '../components/dymanic.domain.enum';
-import {ListDomainBase} from '../components/text-box-domain/list.domain.base';
+import {DomainBase} from '../components/domain.base';
 import {ListExpenseDomainComponent} from '../components/text-box-domain/list.expense.domain.component';
 import {Injectable, Type} from '@angular/core';
 import {Observable} from 'rxjs';
@@ -36,7 +36,7 @@ export class ListDomainService {
 
   ];
 
-  getData(dType: DymanicDomainEnum): Promise<ListDomainBase<string>[]> {
+  getData(dType: DymanicDomainEnum): Promise<DomainBase<string>[]> {
     return new Promise((resolve, reject) => {
       setTimeout(() => {
         if (dType === DymanicDomainEnum.EXPENSE) {        
@@ -46,11 +46,11 @@ export class ListDomainService {
     });
   }
 
-  addItem(item: ListDomainBase<string>) {
+  addItem(item: DomainBase<string>) {
     this.dataTableDataExpenses.push(item);
   }
 
-  getItem(id: number): Observable<ListDomainBase<string>> {
+  getItem(id: number): Observable<DomainBase<string>> {
     return of(this.dataTableDataExpenses.find(item => item.id === id));
   }
 

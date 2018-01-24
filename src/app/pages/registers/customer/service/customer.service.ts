@@ -194,7 +194,7 @@ export class CustomerService {
   }
   
   getPessoa(id: number): Observable<PessoaJuridica> {
-   return of(this.dataTableData.find(hero => hero.id === id));
+   return of(this.dataTableData.find(item => item.id === id));
   }
 
 }

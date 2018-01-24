@@ -1,81 +1,72 @@
 <div class="widgets">
-    <div class="row">
-        <ba-card title="Basic Example" baCardClass="with-scroll" class="data-table-container">
-            <div class="row">
-                <div class="col-sm-2">
-                    <label class="label-control">Linhas por página</label>
-                    <select class="form-control input-sm" [(ngModel)]="rowsOnPage">
-                    <option [ngValue]="5">5</option>
-                    <option [ngValue]="10">10</option>
-                    <option [ngValue]="15">15</option>
-                </select>
-                </div>    
-                <div class="col-sm-4">
-                    <div class="row">
-                        <label class="col-sm-12 label-control">Ordenar por</label>
-                    </div>
-                    <div class="row">
-                        <div class="offset-sm-1 col-sm-5">
-                            <div class="row">
-                                <select class="form-control input-sm" [(ngModel)]="sortBy">
-                            <option ngValue="description">Descrição</option>                          
-                           <!--  <option [ngValue]="sortByWordLength">City</option> -->
-                        </select>
-                            </div>
-                        </div>
-                        <div class="offset-sm-1 col-sm-5">
-                            <div class="row">
-                                <select class="form-control input-sm" [(ngModel)]="sortOrder">
-                            <option ngValue="asc">Ascendente</option>
-                            <option ngValue="desc">Descendente</option>
-                            <option ngValue="badValue">Valores Errados</option>
-                        </select>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-	         <div class="row pull-right">               
-				<button type="button" routerLink="../register-dynamic" class="btn btn-primary">Novo Cliente</button>				
-			</div>   
-            <div class="panel panel-default">
-                <div class="panel-heading">Registros cadastrados</div>
-
-                <table class="table table-striped" [mfData]="lista | dataFilter : filterQuery" #mf="mfDataTable" [mfRowsOnPage]="rowsOnPage" [(mfSortBy)]="sortBy" [(mfSortOrder)]="sortOrder">
-                    <thead>
-                     	<tr>
-                            <th colspan="2">
-                                Filtro por Descrição:
-                                <input class="form-control" [(ngModel)]="filterQuery" />
-                            </th>
-                        </tr>
-                        <tr>
-                            <th style="width: 20%"></th>
-                            <th style="width: 80%">
-                                <mfDefaultSorter by="description">Descrição</mfDefaultSorter>
-                            </th>                                              
-                        </tr>                       
-                    </thead>
-                    <tbody>
-                        <tr *ngFor="let item of mf.data">
-                            <td>
-                                <button class="btn btn-danger glyphicon glyphicon-remove"></button>
-                                <a routerLink="../update-dynamic/{{item.id}}">
-      								<span class="badge">{{item.id}}</span> {{item.description}}
-      						    </a>
-                            </td>
-                            <td>{{item.description}}</td>                                                 
-                        </tr>
-                    </tbody>
-                    <tfoot>
-                        <tr>
-                            <td colspan="2">
-                                <mfBootstrapPaginator [rowsOnPageSet]="[5,10,15]"></mfBootstrapPaginator>
-                            </td>
-                        </tr>
-                    </tfoot>
-                </table>
-            </div>
-        </ba-card>
-    </div>
+	<ba-card title="Basic Example" baCardClass="with-scroll" class="data-table-container">
+	<div class="row">
+		<div class="col-sm-2">
+			<label class="label-control">Linhas por página</label> <select class="form-control input-sm" [(ngModel)]="rowsOnPage">
+				<option [ngValue]="5">5</option>
+				<option [ngValue]="10">10</option>
+				<option [ngValue]="15">15</option>
+			</select>
+		</div>
+		<div class="col-sm-4">
+			<div class="row">
+				<label class="col-sm-12 label-control">Ordenar por</label>
+			</div>
+			<div class="row">
+				<div class="offset-sm-1 col-sm-5">
+					<div class="row">
+						<select class="form-control input-sm" [(ngModel)]="sortBy">
+							<option ngValue="description">Descrição</option>
+						</select>
+					</div>
+				</div>
+				<div class="offset-sm-1 col-sm-5">
+					<div class="row">
+						<select class="form-control input-sm" [(ngModel)]="sortOrder">
+							<option ngValue="asc">Ascendente</option>
+							<option ngValue="desc">Descendente</option>
+							<option ngValue="badValue">Valores Errados</option>
+						</select>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="row pull-right">
+		<button type="button" routerLink="../register-expense" class="btn btn-primary">Novo</button>
+	</div>
+	<div class="panel panel-default">		
+		<div class="panel-heading">Registros cadastrados</div>		
+		<table class="table table-striped" [mfData]="lista | dataFilter : filterQuery" #mf="mfDataTable" [mfRowsOnPage]="rowsOnPage"
+			[(mfSortBy)]="sortBy" [(mfSortOrder)]="sortOrder"
+		>
+			<thead>
+				<tr>
+					<th colspan="3">Filtro por Descrição: <input class="form-control" [(ngModel)]="filterQuery" />
+					</th>
+				</tr>
+				<tr>
+					<th style="width: 30%"></th>
+					<th style="width: 60%"><mfDefaultSorter by="description">Descrição</mfDefaultSorter></th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr *ngFor="let item of mf.data">
+					<td class="text-left">
+						<button (click)="remove(item)" class="btn btn-danger glyphicon glyphicon-remove"></button> <a
+						routerLink="../update-expense/{{item.id}}"
+					> <span class="badge">{{item.id}}</span> {{item.description}}
+					</a>
+					</td>
+					<td class="text-left">{{item.description}}</td>
+				</tr>
+			</tbody>
+			<tfoot>
+				<tr>
+					<td colspan="3"><mfBootstrapPaginator [rowsOnPageSet]="[5,10,15]"></mfBootstrapPaginator></td>
+				</tr>
+			</tfoot>
+		</table>
+	</div>
+	</ba-card>
 </div>

@@ -22,6 +22,6 @@ export class DynamicDomainFormComponent implements OnInit {
    onSubmit() {
     this.payLoad = JSON.stringify(this.dynamicForm.value);
      console.log(this.payLoad);
-  }
+  } 
 
 }

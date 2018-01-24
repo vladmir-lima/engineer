@@ -1,10 +1,11 @@
-import {ListDomainBase} from '../components/text-box-domain/list.domain.base';
+import {DomainBase} from '../components/domain.base';
 import {Component, OnInit, Type} from '@angular/core';
 import {ListDomainService} from '../service/list.domain.service';
 import {Router, ActivatedRoute} from '@angular/router';
 @Component({
   selector: 'dynamic-list',
-  templateUrl: './list.dynamic.component.html'
+  templateUrl: './list.dynamic.component.html',
+  styleUrls: ['./list.dynamic.component.scss']
 })
 export class ListDynamicComponent implements OnInit {
 
@@ -13,7 +14,7 @@ export class ListDynamicComponent implements OnInit {
   sortBy = "description";
   sortOrder = "asc";
 
-  lista: ListDomainBase<string>[];
+  lista: DomainBase<string>[];
 
   constructor(private service: ListDomainService, private route: ActivatedRoute) {
 
