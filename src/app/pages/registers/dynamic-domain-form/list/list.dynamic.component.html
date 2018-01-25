@@ -16,7 +16,7 @@
 				<div class="offset-sm-1 col-sm-5">
 					<div class="row">
 						<select class="form-control input-sm" [(ngModel)]="sortBy">
-							<option ngValue="description">Descrição</option>
+							<option ngValue="descricao">Descrição</option>
 						</select>
 					</div>
 				</div>
@@ -47,7 +47,7 @@
 				</tr>
 				<tr>
 					<th style="width: 30%"></th>
-					<th style="width: 60%"><mfDefaultSorter by="description">Descrição</mfDefaultSorter></th>
+					<th style="width: 60%"><mfDefaultSorter by="descricao">Descrição</mfDefaultSorter></th>
 				</tr>
 			</thead>
 			<tbody>
@@ -55,10 +55,10 @@
 					<td class="text-left">
 						<button (click)="remove(item)" class="btn btn-danger glyphicon glyphicon-remove"></button> <a
 						routerLink="../update-expense/{{item.id}}"
-					> <span class="badge">{{item.id}}</span> {{item.description}}
+					> <span class="badge">{{item.id}}</span> {{item.descricao}}
 					</a>
 					</td>
-					<td class="text-left">{{item.description}}</td>
+					<td class="text-left">{{item.descricao}}</td>
 				</tr>
 			</tbody>
 			<tfoot>

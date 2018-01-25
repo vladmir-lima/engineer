@@ -53,6 +53,14 @@ export const PAGES_MENU = [
                 title: 'Despesas',
               }
             }
+          },
+           {
+            path: 'list-service',
+            data: {
+              menu: {
+                title: 'Serviços',
+              }
+            }
           }
         ]
       },

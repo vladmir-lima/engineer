@@ -1,0 +1,33 @@
+
+<div class="widgets">
+	<ba-card cardTitle="Cadastro de {{domainDescription}}" baCardClass="with-scroll">
+	<form [formGroup]="dynamicForm">
+		<div class="row">
+			<div class="col-md-12">
+				<div formGroupName="domainBase">
+					<div class="row">
+						<div class="col-sm-6">
+							<div class="form-group">
+								<label for="descricao">Descrição</label> <input type="text" formControlName="descricao" class="form-control  required" id="descricao"
+									placeholder="Digite aqui a descrição"
+								>	
+								<show-errors [control]="descricao"></show-errors>																
+							</div>							
+						</div>
+					</div>			
+				</div>
+			</div>
+		</div>		
+		<div class="row">
+			<div class="col-md-6">
+				<button [disabled]="!dynamicForm.valid" type="submit" (click)="onsubmit()" class="btn btn-primary">Enviar</button>							
+			</div>
+	</div>
+	</form>
+	</ba-card>
+</div>
+<p>Form value: {{ dynamicForm.value | json }}</p>
+<p>Form status: {{ dynamicForm.status | json }}</p>
+
+
+
