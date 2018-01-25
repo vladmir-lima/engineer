@@ -33,7 +33,7 @@
 		</div>
 	</div>
 	<div class="row pull-right">
-		<button type="button" routerLink="../register-expense" class="btn btn-primary">Novo</button>
+		<button type="button" routerLink="../register-dynamic-domain" class="btn btn-primary">Novo</button>
 	</div>
 	<div class="panel panel-default">		
 		<div class="panel-heading">Registros cadastrados</div>		
@@ -53,10 +53,12 @@
 			<tbody>
 				<tr *ngFor="let item of mf.data">
 					<td class="text-left">
-						<button (click)="remove(item)" class="btn btn-danger glyphicon glyphicon-remove"></button> <a
-						routerLink="../update-expense/{{item.id}}"
-					> <span class="badge">{{item.id}}</span> {{item.descricao}}
-					</a>
+						<button class="btn btn-danger btn-icon">
+							<i routerLink="../update-dymanic-domain/{{item.id}}" class="ion-android-close"></i>
+						</button>
+						<button class="btn btn-primary btn-icon">
+							<i routerLink="../update-dynamic-domain/{{item.id}}" class="ion-android-clipboard"></i>
+						</button>
 					</td>
 					<td class="text-left">{{item.descricao}}</td>
 				</tr>

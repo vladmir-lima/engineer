@@ -16,11 +16,9 @@ export const routes: Routes = [
       {path: 'register-costumer', component: RegisterCustomerComponent},
       {path: 'update-costumer/:id', component: RegisterCustomerComponent},
       {path: 'list-expense', component: ListDynamicComponent, data: {domainType: DymanicDomainEnum.EXPENSE}},
-      {path: 'update-expense/:id', component: DynamicDomainComponent},
-      {path: 'register-expense', component: DynamicDomainComponent},
-      {path: 'list-service', component: ListDynamicComponent, data: {domainType: DymanicDomainEnum.SERVICE}},
-      {path: 'update-sevice/:id', component: DynamicDomainComponent},
-      {path: 'register-service', component: DynamicDomainComponent}
+      {path: 'update-dynamic-domain/:id', component: DynamicDomainComponent},
+      {path: 'register-dynamic-domain', component: DynamicDomainComponent},
+      {path: 'list-service', component: ListDynamicComponent, data: {domainType: DymanicDomainEnum.SERVICE}}   
     ]
   }
 ];

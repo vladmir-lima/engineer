@@ -57,11 +57,13 @@
 			</thead>
 			<tbody>
 				<tr *ngFor="let item of mf.data">
-					<td>
-						<button (click)="remove(item)" class="btn btn-danger glyphicon glyphicon-remove"></button> <a
-						routerLink="../update-costumer/{{item.id}}"
-					> <span class="badge">{{item.id}}</span> {{item.razaoSocial}}
-					</a>
+					<td class="text-left">
+						<button class="btn btn-danger btn-icon">
+							<i routerLink="../update-costumer/{{item.id}}" class="ion-android-close"></i>
+						</button>
+						<button class="btn btn-primary btn-icon">
+							<i routerLink="../update-costumer/{{item.id}}" class="ion-android-clipboard"></i>
+						</button>
 					</td>
 					<td>{{item.razaoSocial}}</td>
 					<td>{{item.email}}</td>
