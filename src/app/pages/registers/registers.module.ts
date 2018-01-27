@@ -2,7 +2,7 @@
 import {Ng2SmartTableModule} from 'ng2-smart-table';
 import {DataTableModule} from "angular2-datatable";
 import {HttpModule} from "@angular/http";
-import {DataFilterPipe} from './customer/filter/data-filter.pipe';
+import {DataFilterPipe} from './components/filter/data-filter.pipe';
 import {HotTable, HotTableModule} from 'ng2-handsontable';
 import {NgModule} from '@angular/core';
 import {NgaModule} from '../../theme/nga.module';
@@ -19,7 +19,10 @@ import {ListCostumerComponent} from './customer/list/listcostumer.component';
 import {RegisterCustomerComponent} from './customer/register/register.component';
 import {DynamicService} from './dynamic-domain-form/service/dynamic.service';
 import {ListDynamicComponent} from './dynamic-domain-form/list/list.dynamic.component';
-import { DynamicDomainComponent } from './dynamic-domain-form/register/dynamic.domain.component';
+import {DynamicDomainComponent} from './dynamic-domain-form/register/dynamic.domain.component';
+import {ListWorkComponent} from './work/list/list.work.component';
+import {WorkComponent} from './work/register/work.component';
+import { WorkService } from './work/service/work.service';
 
 
 @NgModule({
@@ -41,15 +44,18 @@ import { DynamicDomainComponent } from './dynamic-domain-form/register/dynamic.d
     DataFilterPipe,
     ListCostumerComponent,
     RegisterCustomerComponent,
-    ShowErrorsComponent,  
+    ShowErrorsComponent,
     AddressComponent,
     ListDynamicComponent,
-    DynamicDomainComponent
-    
+    DynamicDomainComponent,
+    WorkComponent,
+    ListWorkComponent
+
   ],
   providers: [
-    CustomerService,   
-    DynamicService   
+    CustomerService,
+    DynamicService,
+    WorkService
   ]
 })
 export class RegistersModule {

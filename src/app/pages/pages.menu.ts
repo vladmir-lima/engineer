@@ -25,7 +25,7 @@ export const PAGES_MENU = [
             order: 100
           }
         }
-      },      
+      },
       {
         path: 'registers',
         data: {
@@ -54,11 +54,19 @@ export const PAGES_MENU = [
               }
             }
           },
-           {
+          {
             path: 'list-service',
             data: {
               menu: {
                 title: 'Serviços',
+              }
+            }
+          },
+          {
+            path: 'list-work',
+            data: {
+              menu: {
+                title: 'Obras',
               }
             }
           }
@@ -203,7 +211,7 @@ export const PAGES_MENU = [
             order: 600,
           }
         },
-        children: [         
+        children: [
           {
             path: 'inputs',
             data: {

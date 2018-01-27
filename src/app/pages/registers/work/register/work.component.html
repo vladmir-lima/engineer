@@ -1,0 +1,40 @@
+<div class="widgets">
+	<ba-card cardTitle="Cadastro de Obra" baCardClass="with-scroll">
+	<form [formGroup]="workForm">
+		<div class="row">
+			<div class="col-md-12">
+				<div formGroupName="work">
+					<div class="row">
+						<div class="col-sm-6">
+							<div class="form-group">
+								<select [formControlName]="customer" [id]="customer" class="form-control">
+									<option *ngFor="let c of customers" [ngValue]="c">{{customer.razaoSocial}}</option>
+								</select>
+								<show-errors [control]="customer"></show-errors>
+							</div>
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-sm-6">
+							<div class="form-group">
+								<label for="description">Descrição</label> <input type="text" formControlName="description" class="form-control"
+									id="description" placeholder="Descrição da obra"
+								>
+								<show-errors [control]="description"></show-errors>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="separator"></div>
+		<div class="row">
+			<div class="col-md-6">
+				<button [disabled]="!workForm.valid" type="submit" (click)="onsubmit()" class="btn btn-primary">Enviar</button>
+			</div>
+		</div>
+	</form>
+	</ba-card>
+</div>
+<p>Form value: {{ workForm.value | json }}</p>
+<p>Form status: {{ workForm.status | json }}</p>

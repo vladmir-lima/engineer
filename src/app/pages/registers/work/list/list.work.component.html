@@ -1,5 +1,5 @@
 <div class="widgets">
-	<ba-card title="Basic Example" baCardClass="with-scroll" class="data-table-container">
+	<ba-card title="Lista das obras" baCardClass="with-scroll" class="data-table-container">
 	<div class="row">
 		<div class="col-sm-2">
 			<label class="label-control">Linhas por página</label> <select class="form-control input-sm" [(ngModel)]="rowsOnPage">
@@ -16,7 +16,7 @@
 				<div class="offset-sm-1 col-sm-5">
 					<div class="row">
 						<select class="form-control input-sm" [(ngModel)]="sortBy">
-							<option ngValue="descricao">Descrição</option>
+							<option ngValue="description">Descrição</option>
 						</select>
 					</div>
 				</div>
@@ -33,7 +33,7 @@
 		</div>
 	</div>
 	<div class="row pull-right">
-		<button type="button" routerLink="../register-dynamic-domain" class="btn btn-primary">Novo</button>
+		<button type="button" routerLink="../register-work" class="btn btn-primary">Novo</button>
 	</div>
 	<div class="panel panel-default">		
 		<div class="panel-heading">Registros cadastrados</div>		
@@ -47,20 +47,22 @@
 				</tr>
 				<tr>
 					<th style="width: 30%"></th>
-					<th style="width: 60%"><mfDefaultSorter by="descricao">Descrição</mfDefaultSorter></th>
+					<th style="width: 30%"><mfDefaultSorter by="customer.razaoSocial">Cliente</mfDefaultSorter></th>
+					<th style="width: 40%"><mfDefaultSorter by="description">Descrição</mfDefaultSorter></th>
 				</tr>
 			</thead>
 			<tbody>
 				<tr *ngFor="let item of mf.data">
 					<td class="text-left">
 						<button class="btn btn-danger btn-icon">
-							<i routerLink="../update-dymanic-domain/{{item.id}}" class="ion-android-close"></i>
+							<i routerLink="../update-work/{{item.id}}" class="ion-android-close"></i>
 						</button>
 						<button class="btn btn-primary btn-icon">
-							<i routerLink="../update-dynamic-domain/{{item.id}}" class="ion-android-clipboard"></i>
+							<i routerLink="../update-work/{{item.id}}" class="ion-android-clipboard"></i>
 						</button>
 					</td>
-					<td class="text-left">{{item.descricao}}</td>
+					<td class="text-left">{{item.customer.razaoSocial}}</td>
+					<td class="text-left">{{item.description}}</td>
 				</tr>
 			</tbody>
 			<tfoot>

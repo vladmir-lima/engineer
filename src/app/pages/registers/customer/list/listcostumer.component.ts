@@ -12,8 +12,8 @@ export class ListCostumerComponent implements OnInit {
 
   filterQuery = "";
   rowsOnPage = 10;
-  sortBy = "email";
-  sortOrder = "asc";
+  sortBy = "razaoSocial";
+  sortOrder = "asc";  
 
   pessoas: PessoaJuridica[];
 
