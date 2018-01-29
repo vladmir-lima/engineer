@@ -2,8 +2,6 @@ import {Component, Input} from '@angular/core';
 import {AbstractControlDirective, AbstractControl} from '@angular/forms';
 
 @Component({
-
-
   selector: 'show-errors',
   template: `
    <ul *ngIf="shouldShowErrors()" class="alert alert-danger">
