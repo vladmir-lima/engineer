@@ -29,7 +29,7 @@ export class WorkComponent implements OnInit {
 
     this.workForm = this.fb.group({
       work: this.fb.group({
-        customer: [this.work.customer || new PessoaJuridica(), Validators.required],
+        'customer.id': [this.work.customer.id || '', Validators.required],
         description: [this.work.description || '', Validators.required]
       })
     })
@@ -51,6 +51,7 @@ export class WorkComponent implements OnInit {
         .subscribe(work => this.work = work);
     } else {
       this.work = new Work();
+      this.work.addCustomer(new PessoaJuridica());
     }
   }
 
