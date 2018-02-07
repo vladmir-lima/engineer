@@ -6,7 +6,7 @@ import {DymanicDomainEnum} from './dynamic-domain-form/components/dymanic.domain
 import {ListDynamicComponent} from './dynamic-domain-form/list/list.dynamic.component';
 import {DynamicDomainComponent} from './dynamic-domain-form/register/dynamic.domain.component';
 import {ListWorkComponent} from './work/list/list.work.component';
-import { WorkComponent } from './work/register/work.component';
+import {WorkComponent} from './work/register/work.component';
 import {Routes, RouterModule} from '@angular/router';
 
 export const routes: Routes = [

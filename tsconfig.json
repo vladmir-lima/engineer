@@ -1,5 +1,5 @@
 {
-  "compileOnSave": false,
+  "compileOnSave": false, 
   "compilerOptions": {
     "outDir": "./dist/out-tsc",
     "baseUrl": "src",
@@ -18,6 +18,7 @@
     ],
     "plugins": [
       { "name": "tslint-language-service"}
-    ]
+    ],
+    "paths": { "@angular/*": ["../node_modules/@angular/*"] }
   }
 }

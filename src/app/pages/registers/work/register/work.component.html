@@ -8,10 +8,10 @@
 						<div class="col-sm-6">
 							<div class="form-group">
 								<label for="customer">Cliente</label>
-								<select formControlName="customer.id" id="id" class="form-control">
+								<select formControlName="customer.id" id="cliente" class="form-control">
 									<option *ngFor="let c of customers" [ngValue]="c.id">{{c.razaoSocial}}</option>
 								</select>
-								<show-errors [control]="id"></show-errors>
+								<show-errors [control]="cliente"></show-errors>
 							</div>
 						</div>
 					</div>

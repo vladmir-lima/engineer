@@ -16,6 +16,9 @@ export class WorkComponent implements OnInit {
   work: Work;
   customers: PessoaJuridica[];
 
+  get cliente() {return this.workForm.get('customer.id')}
+  get description() {return this.workForm.get('description')}
+
   constructor(private fb: FormBuilder,
     private router: ActivatedRoute,
     private service: WorkService,
@@ -24,13 +27,14 @@ export class WorkComponent implements OnInit {
 
 
   ngOnInit() {
-    
+
     this.getWork();
 
     this.workForm = this.fb.group({
       work: this.fb.group({
-        'customer.id': [this.work.customer.id || '', Validators.required],
-        description: [this.work.description || '', Validators.required]
+        id: [this.work.id || ''],
+        description: [this.work.description || '', Validators.required],
+        'customer.id': [this.work.customer.id || '', Validators.required]
       })
     })
 
@@ -39,8 +43,8 @@ export class WorkComponent implements OnInit {
     });
 
   }
-  
-    onsubmit () {  
+
+  onsubmit() {
     this.service.addWork(this.workForm.controls.work.value);
   }
 

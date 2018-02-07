@@ -7,7 +7,6 @@ import {HotTable, HotTableModule} from 'ng2-handsontable';
 import {NgModule} from '@angular/core';
 import {NgaModule} from '../../theme/nga.module';
 import {ShowErrorsComponent} from '../components/show-errors/show-errors.component';
-import {MaskDirective} from '../directives/mask.directive';
 import {NumberOnlyDirective} from '../directives/numberonly.directive';
 import {AddressComponent} from './address/address.component';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
@@ -22,7 +21,8 @@ import {ListDynamicComponent} from './dynamic-domain-form/list/list.dynamic.comp
 import {DynamicDomainComponent} from './dynamic-domain-form/register/dynamic.domain.component';
 import {ListWorkComponent} from './work/list/list.work.component';
 import {WorkComponent} from './work/register/work.component';
-import { WorkService } from './work/service/work.service';
+import {WorkService} from './work/service/work.service';
+import {NgxMaskModule} from 'ngx-mask'
 
 
 @NgModule({
@@ -35,11 +35,11 @@ import { WorkService } from './work/service/work.service';
     Ng2SmartTableModule,
     DataTableModule,
     HttpModule,
-    HotTableModule
+    HotTableModule,
+    NgxMaskModule
   ],
   declarations: [
-    RegistersComponent,
-    MaskDirective,
+    RegistersComponent,  
     NumberOnlyDirective,
     DataFilterPipe,
     ListCostumerComponent,

@@ -17,7 +17,7 @@ export class WorkService {
       }
     },
     {
-      'id': 1,
+      'id': 2,
       'description': 'Obra em Goiânia',
       'customer': {
         'id': 1,
@@ -25,7 +25,7 @@ export class WorkService {
       }
     },
     {
-      'id': 1,
+      'id': 3,
       'description': 'Obra em Jataí',
       'customer':{
         'id': 2,
