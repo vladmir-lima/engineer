@@ -14,16 +14,16 @@ export const routes: Routes = [
     path: '',
     component: RegistersComponent,
     children: [
-      {path: 'list-customer', component: ListCostumerComponent},
-      {path: 'register-costumer', component: RegisterCustomerComponent},
-      {path: 'update-costumer/:id', component: RegisterCustomerComponent},
-      {path: 'list-expense', component: ListDynamicComponent, data: {domainType: DymanicDomainEnum.EXPENSE}},
-      {path: 'update-dynamic-domain/:id', component: DynamicDomainComponent},
-      {path: 'register-dynamic-domain', component: DynamicDomainComponent},
-      {path: 'list-service', component: ListDynamicComponent, data: {domainType: DymanicDomainEnum.SERVICE}},
-      {path: 'list-work', component: ListWorkComponent},
-      {path: 'register-work', component: WorkComponent},
-      {path: 'update-work/:id', component: WorkComponent}
+      {path: 'lista-clientes', component: ListCostumerComponent},
+      {path: 'cadastro-cliente', component: RegisterCustomerComponent},
+      {path: 'cadastro-cliente/:id', component: RegisterCustomerComponent},
+      {path: 'lista-despesas', component: ListDynamicComponent, data: {domainType: DymanicDomainEnum.EXPENSE}},
+      {path: 'cadastro-dinamico/:id', component: DynamicDomainComponent},
+      {path: 'cadastro-dinamico', component: DynamicDomainComponent},
+      {path: 'lista-servicos', component: ListDynamicComponent, data: {domainType: DymanicDomainEnum.SERVICE}},
+      {path: 'lista-obras', component: ListWorkComponent},
+      {path: 'cadastro-obra', component: WorkComponent},
+      {path: 'cadastro-obra/:id', component: WorkComponent}
     ]
   }
 ];

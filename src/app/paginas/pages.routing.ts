@@ -8,20 +8,20 @@ import {ModuleWithProviders} from '@angular/core';
 export const routes: Routes = [
   {
     path: 'login',
-    loadChildren: 'app/pages/login/login.module#LoginModule'
+    loadChildren: 'app/paginas/login/login.module#LoginModule'
   },
   {
-    path: 'register',
-    loadChildren: 'app/pages/register/register.module#RegisterModule'
+    path: 'registros',
+    loadChildren: 'app/paginas/registros/register.module#RegisterModule'
   },
   {
-    path: 'pages',
+    path: 'paginas',
     component: Pages,
     children: [
       {path: '', redirectTo: 'home', pathMatch: 'full'},
       {path: 'home', loadChildren: './home/home.module#HomeModule'},
       {path: 'dashboard', loadChildren: './dashboard/dashboard.module#DashboardModule'},
-      {path: 'registers', loadChildren: './registers/registers.module#RegistersModule'},
+      {path: 'registros', loadChildren: './registros/registers.module#RegistersModule'},
       {path: 'editors', loadChildren: './editors/editors.module#EditorsModule'},
       {path: 'components', loadChildren: './components/components.module#ComponentsModule'},
       {path: 'charts', loadChildren: './charts/charts.module#ChartsModule'},

@@ -9,6 +9,8 @@ import {NgaModule} from '../../theme/nga.module';
 import {ShowErrorsComponent} from '../components/show-errors/show-errors.component';
 import {NumberOnlyDirective} from '../directives/numberonly.directive';
 import {AddressComponent} from './address/address.component';
+import {AlertComponent} from './components/alert/component';
+import { AlertService } from './components/alert/service';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {CommonModule} from '@angular/common';
 import {routing} from './registers.routing';
@@ -22,8 +24,7 @@ import {DynamicDomainComponent} from './dynamic-domain-form/register/dynamic.dom
 import {ListWorkComponent} from './work/list/list.work.component';
 import {WorkComponent} from './work/register/work.component';
 import {WorkService} from './work/service/work.service';
-import {NgxMaskModule} from 'ngx-mask'
-
+import {NgxMaskModule} from 'ngx-mask';
 
 @NgModule({
   imports: [
@@ -39,7 +40,7 @@ import {NgxMaskModule} from 'ngx-mask'
     NgxMaskModule
   ],
   declarations: [
-    RegistersComponent,  
+    RegistersComponent,
     NumberOnlyDirective,
     DataFilterPipe,
     ListCostumerComponent,
@@ -49,13 +50,15 @@ import {NgxMaskModule} from 'ngx-mask'
     ListDynamicComponent,
     DynamicDomainComponent,
     WorkComponent,
-    ListWorkComponent
-
+    ListWorkComponent,
+    AlertComponent
+    
   ],
   providers: [
     CustomerService,
     DynamicService,
-    WorkService
+    WorkService,
+    AlertService
   ]
 })
 export class RegistersModule {

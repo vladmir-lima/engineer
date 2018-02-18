@@ -1,5 +1,7 @@
+import { AlertService } from '../../components/alert/service';
+import {BaseComponent} from '../../components/base/base.component';
 import {DomainBase} from '../components/domain.base';
-import { DymanicDomainEnum } from '../components/dymanic.domain.enum';
+import {DymanicDomainEnum} from '../components/dymanic.domain.enum';
 import {Expense} from '../components/entity/Expense';
 import {Component, OnInit, HostListener, OnChanges, Type} from '@angular/core';
 import {FormGroup, FormBuilder, Validators, FormControl, AbstractControl} from '@angular/forms';
@@ -12,7 +14,7 @@ import {ActivatedRoute} from '@angular/router';
   templateUrl: './dynamic.domain.component.html',
 })
 
-export class DynamicDomainComponent implements OnInit {
+export class DynamicDomainComponent extends BaseComponent implements OnInit {
 
   dynamicForm: FormGroup;
   domainBase: DomainBase<string>;
@@ -20,7 +22,8 @@ export class DynamicDomainComponent implements OnInit {
 
   get descricao() {return this.dynamicForm.get('domainBase.descricao')}
 
-  constructor(private fb: FormBuilder, private service: DynamicService, private router: ActivatedRoute) {
+  constructor(private fb: FormBuilder, private service: DynamicService, private router: ActivatedRoute, public alertService: AlertService) {
+    super(alertService);
   }
 
   ngOnInit(): void {
@@ -34,7 +37,7 @@ export class DynamicDomainComponent implements OnInit {
       })
 
     })
-    
+
     this.domainDescription = this.service.getDomainDescription();
 
     //    console.log(this.buildNameFun('vladmir', 'lima', 'carvalho'));
@@ -48,10 +51,13 @@ export class DynamicDomainComponent implements OnInit {
   onsubmit() {
     //    console.log(this.dynamicForm.controls.domainBase.value);
     //    console.log(this.dynamicForm.controls.address.value);
-    if (!this.dynamicForm.controls.domainBase.value.id) {
-      this.dynamicForm.controls.domainBase.value.id = 10;
-    }
-    this.service.addItem(this.dynamicForm.controls.domainBase.value);
+    this.service.getData().then((data) => {
+      let last: any = data[data.length - 1];
+      this.dynamicForm.controls.domainBase.value.id = last.id + 1;
+      this.service.addItem(this.dynamicForm.controls.domainBase.value);
+      super.success("Registro salvo com sucesso!");
+    });  
+
   }
 
 

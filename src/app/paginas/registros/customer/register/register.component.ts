@@ -1,4 +1,6 @@
 import {Address} from '../../address/address';
+import {AlertService} from '../../components/alert/service/index';
+import { BaseComponent } from '../../components/base/base.component';
 import {PessoaJuridica} from '../components/pessoajuridica/pessoajuridica';
 import {Component, OnInit, HostListener, OnChanges, Type} from '@angular/core';
 import {FormGroup, FormBuilder, Validators, FormControl, AbstractControl} from '@angular/forms';
@@ -10,22 +12,23 @@ import {ActivatedRoute} from '@angular/router';
   templateUrl: './register.component.html',
 })
 
-export class RegisterCustomerComponent implements OnInit {
+export class RegisterCustomerComponent extends BaseComponent implements OnInit {
 
   customerForm: FormGroup;
   pessoaJuridica: PessoaJuridica;
   address: Address;
 
-  get cnpj () {return this.customerForm.get('pessoaJuridica.cnpj')}
-  get razaoSocial () {return this.customerForm.get('pessoaJuridica.razaoSocial')}
-  get email () {return this.customerForm.get('pessoaJuridica.email')}
-  get nomeFantasia () {return this.customerForm.get('pessoaJuridica.nomeFantasia')}
+  get cnpj() {return this.customerForm.get('pessoaJuridica.cnpj')}
+  get razaoSocial() {return this.customerForm.get('pessoaJuridica.razaoSocial')}
+  get email() {return this.customerForm.get('pessoaJuridica.email')}
+  get nomeFantasia() {return this.customerForm.get('pessoaJuridica.nomeFantasia')}
 
-  constructor(private fb: FormBuilder, private service: CustomerService, private router: ActivatedRoute) {
+  constructor(private fb: FormBuilder, private service: CustomerService, private router: ActivatedRoute, public alertService: AlertService) {
+    super(alertService);
   }
 
-  ngOnInit (): void {
-   
+  ngOnInit(): void {
+
     this.getPessoa();
 
     this.customerForm = this.fb.group({
@@ -44,16 +47,22 @@ export class RegisterCustomerComponent implements OnInit {
 
   }
 
-  myEvent (event) {
+  myEvent(event) {
     console.log(event.target.value);
   }
 
-  onsubmit () {
-    //    console.log(this.customerForm.controls.pessoaJuridica.value);
-    //    console.log(this.customerForm.controls.address.value);
-    this.service.addPessoa(this.customerForm.controls.pessoaJuridica.value);
+  onsubmit() {
+    console.log(this.customerForm.controls.pessoaJuridica.value);
+    this.service.getData().then((data) => {
+      let last: any = data[data.length - 1];
+      this.customerForm.controls.pessoaJuridica.value.id = last.id + 1;
+      this.customerForm.controls.pessoaJuridica.value.address = this.customerForm.controls.address.value;
+      this.service.addPessoa(this.customerForm.controls.pessoaJuridica.value); 
+      super.success("Registro salvo com sucesso!");   
+    });
+
   }
-  
+
 
   //  ngOnChanges() {
   //    this.pessoaJuridica = this.customerForm.controls.pessoaJuridica.value;
@@ -61,13 +70,13 @@ export class RegisterCustomerComponent implements OnInit {
   //  }
 
 
-  buildName (firstName: string, ...restOfName: string[]) {
+  buildName(firstName: string, ...restOfName: string[]) {
     return firstName + " " + restOfName.join(" ");
   }
 
   buildNameFun: (fname: string, ...rest: string[]) => string = this.buildName;
 
-  getPessoa (): void {
+  getPessoa(): void {
     const id = +this.router.snapshot.paramMap.get('id');
     if (id) {
       this.service.getPessoa(id)

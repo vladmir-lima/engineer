@@ -1,3 +1,5 @@
+import {AlertService} from '../../components/alert/service';
+import {BaseComponent} from '../../components/base/base.component';
 import {PessoaJuridica} from '../../customer/components/pessoajuridica/pessoajuridica';
 import {CustomerService} from '../../customer/service/customer.service';
 import {Work} from '../components/work';
@@ -10,7 +12,7 @@ import {WorkService} from '../service/work.service';
   selector: 'register-work',
   templateUrl: './work.component.html'
 })
-export class WorkComponent implements OnInit {
+export class WorkComponent extends BaseComponent implements OnInit {
 
   workForm: FormGroup;
   work: Work;
@@ -22,7 +24,9 @@ export class WorkComponent implements OnInit {
   constructor(private fb: FormBuilder,
     private router: ActivatedRoute,
     private service: WorkService,
-    private customerService: CustomerService) {
+    private customerService: CustomerService,
+    public alertService: AlertService) {
+     super(alertService);
   }
 
 
@@ -45,7 +49,13 @@ export class WorkComponent implements OnInit {
   }
 
   onsubmit() {
-    this.service.addWork(this.workForm.controls.work.value);
+    this.service.getData().then((data) => {
+      let last: any = data[data.length - 1];
+      this.workForm.controls.work.value.id = last.id + 1;
+      this.service.addWork(this.workForm.controls.work.value);
+      super.success("Registro salvo com sucesso!");
+    });
+
   }
 
   getWork(): void {

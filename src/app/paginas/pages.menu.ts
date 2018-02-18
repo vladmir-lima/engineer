@@ -1,6 +1,6 @@
 export const PAGES_MENU = [
   {
-    path: 'pages',
+    path: 'paginas',
     children: [
       {
         path: 'home',
@@ -27,7 +27,7 @@ export const PAGES_MENU = [
         }
       },
       {
-        path: 'registers',
+        path: 'registros',
         data: {
           menu: {
             title: 'Cadastros',
@@ -39,7 +39,7 @@ export const PAGES_MENU = [
         },
         children: [
           {
-            path: 'list-customer',
+            path: 'lista-clientes',
             data: {
               menu: {
                 title: 'Cliente',
@@ -47,7 +47,7 @@ export const PAGES_MENU = [
             }
           },
           {
-            path: 'list-expense',
+            path: 'lista-despesas',
             data: {
               menu: {
                 title: 'Despesas',
@@ -55,7 +55,7 @@ export const PAGES_MENU = [
             }
           },
           {
-            path: 'list-service',
+            path: 'lista-servicos',
             data: {
               menu: {
                 title: 'Serviços',
@@ -63,7 +63,7 @@ export const PAGES_MENU = [
             }
           },
           {
-            path: 'list-work',
+            path: 'lista-obras',
             data: {
               menu: {
                 title: 'Obras',

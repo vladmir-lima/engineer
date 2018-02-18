@@ -19,7 +19,7 @@ export class ListDynamicComponent implements OnInit {
 
   lista: DomainBase<string>[];
 
-  constructor(private service: DynamicService, private route: ActivatedRoute) {
+  constructor(private service: DynamicService, private route: ActivatedRoute, private router: Router) {
 
   }
 
@@ -31,6 +31,10 @@ export class ListDynamicComponent implements OnInit {
           this.domainType = dType.domainType;
         });
       });
+  }
+  
+  goToRegister() {
+    this.router.navigate(['/paginas/registros/cadastro-dinamico', {domainType: this.domainType}]); 
   }
 
   toInt(num: string) {
