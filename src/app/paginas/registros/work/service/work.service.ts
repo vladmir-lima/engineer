@@ -1,11 +1,16 @@
 import {Work} from '../components/work';
 import {Injectable} from '@angular/core';
 import {PessoaJuridica} from '../../customer/components/pessoajuridica/pessoajuridica';
+import {CustomerService} from '../../customer/service/customer.service';
 import {Observable} from 'rxjs';
 import {of} from 'rxjs/observable/of';
 
 @Injectable()
 export class WorkService {
+
+  constructor(private customerService: CustomerService) {
+
+  }
 
   dataTableData: Work[] = [
     {
@@ -27,7 +32,7 @@ export class WorkService {
     {
       'id': 3,
       'description': 'Obra em Jataí',
-      'customer':{
+      'customer': {
         'id': 2,
         'razaoSocial': 'Padaria do Zé ltda'
       }
@@ -39,16 +44,26 @@ export class WorkService {
       setTimeout(() => {
         resolve(this.dataTableData);
       }, 2000);
-    });
+    });    
   }
 
   addWork(work: Work) {
-    console.log(work);
+    console.log(work.customer);
+    this.getPessoaJuridica(work);
     this.dataTableData.push(work);
   }
 
   getWork(id: number): Observable<Work> {
+    let work: Work = this.dataTableData.find(item => item.id === id);  
+    if (work) {
+      this.getPessoaJuridica(work);
+    }
     return of(this.dataTableData.find(item => item.id === id));
+  }
+  
+  getPessoaJuridica(work: Work) {
+    this.customerService.getPessoa(work.customer.id)
+        .subscribe(pessoaJuridica => work.customer = pessoaJuridica)      
   }
 
 }

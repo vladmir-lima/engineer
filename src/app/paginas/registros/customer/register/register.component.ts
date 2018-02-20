@@ -1,11 +1,11 @@
 import {Address} from '../../address/address';
 import {AlertService} from '../../components/alert/service/index';
-import { BaseComponent } from '../../components/base/base.component';
+import {BaseComponent} from '../../components/base/base.component';
 import {PessoaJuridica} from '../components/pessoajuridica/pessoajuridica';
 import {Component, OnInit, HostListener, OnChanges, Type} from '@angular/core';
 import {FormGroup, FormBuilder, Validators, FormControl, AbstractControl} from '@angular/forms';
 import {CustomerService} from '../service/customer.service';
-import {ActivatedRoute} from '@angular/router';
+import {ActivatedRoute, Router} from '@angular/router';
 
 @Component({
   selector: 'register-customer',
@@ -23,7 +23,8 @@ export class RegisterCustomerComponent extends BaseComponent implements OnInit {
   get email() {return this.customerForm.get('pessoaJuridica.email')}
   get nomeFantasia() {return this.customerForm.get('pessoaJuridica.nomeFantasia')}
 
-  constructor(private fb: FormBuilder, private service: CustomerService, private router: ActivatedRoute, public alertService: AlertService) {
+  constructor(private fb: FormBuilder, private service: CustomerService,
+    private route: ActivatedRoute, public alertService: AlertService, private router: Router) {
     super(alertService);
   }
 
@@ -57,8 +58,9 @@ export class RegisterCustomerComponent extends BaseComponent implements OnInit {
       let last: any = data[data.length - 1];
       this.customerForm.controls.pessoaJuridica.value.id = last.id + 1;
       this.customerForm.controls.pessoaJuridica.value.address = this.customerForm.controls.address.value;
-      this.service.addPessoa(this.customerForm.controls.pessoaJuridica.value); 
-      super.success("Registro salvo com sucesso!");   
+      this.service.addPessoa(this.customerForm.controls.pessoaJuridica.value);
+      super.success("Registro salvo com sucesso!");
+      this.router.navigate(['/paginas/registros/lista-clientes']);
     });
 
   }
@@ -77,7 +79,7 @@ export class RegisterCustomerComponent extends BaseComponent implements OnInit {
   buildNameFun: (fname: string, ...rest: string[]) => string = this.buildName;
 
   getPessoa(): void {
-    const id = +this.router.snapshot.paramMap.get('id');
+    const id = +this.route.snapshot.paramMap.get('id');
     if (id) {
       this.service.getPessoa(id)
         .subscribe(pessoaJuridica => this.pessoaJuridica = pessoaJuridica);

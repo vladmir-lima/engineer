@@ -17,10 +17,10 @@ export const routes: Routes = [
       {path: 'lista-clientes', component: ListCostumerComponent},
       {path: 'cadastro-cliente', component: RegisterCustomerComponent},
       {path: 'cadastro-cliente/:id', component: RegisterCustomerComponent},
-      {path: 'lista-despesas', component: ListDynamicComponent, data: {domainType: DymanicDomainEnum.EXPENSE}},
+      {path: 'lista-despesas', component: ListDynamicComponent, data: {tipo: DymanicDomainEnum.EXPENSE}},
       {path: 'cadastro-dinamico/:id', component: DynamicDomainComponent},
       {path: 'cadastro-dinamico', component: DynamicDomainComponent},
-      {path: 'lista-servicos', component: ListDynamicComponent, data: {domainType: DymanicDomainEnum.SERVICE}},
+      {path: 'lista-servicos', component: ListDynamicComponent, data: {tipo: DymanicDomainEnum.SERVICE}},
       {path: 'lista-obras', component: ListWorkComponent},
       {path: 'cadastro-obra', component: WorkComponent},
       {path: 'cadastro-obra/:id', component: WorkComponent}

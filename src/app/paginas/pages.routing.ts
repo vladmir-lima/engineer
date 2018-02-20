@@ -11,8 +11,8 @@ export const routes: Routes = [
     loadChildren: 'app/paginas/login/login.module#LoginModule'
   },
   {
-    path: 'registros',
-    loadChildren: 'app/paginas/registros/register.module#RegisterModule'
+    path: 'register',
+    loadChildren: 'app/paginas/register/register.module#RegisterModule'
   },
   {
     path: 'paginas',

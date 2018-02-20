@@ -5,7 +5,7 @@ import {CustomerService} from '../../customer/service/customer.service';
 import {Work} from '../components/work';
 import {Component, OnInit} from '@angular/core';
 import {FormGroup, FormBuilder, Validators, FormControl, AbstractControl} from '@angular/forms';
-import {ActivatedRoute} from '@angular/router';
+import {ActivatedRoute, Router} from '@angular/router';
 import {WorkService} from '../service/work.service';
 
 @Component({
@@ -22,11 +22,13 @@ export class WorkComponent extends BaseComponent implements OnInit {
   get description() {return this.workForm.get('description')}
 
   constructor(private fb: FormBuilder,
-    private router: ActivatedRoute,
+    private route: ActivatedRoute,
     private service: WorkService,
     private customerService: CustomerService,
-    public alertService: AlertService) {
-     super(alertService);
+    public alertService: AlertService,
+    private router: Router
+  ) {
+    super(alertService);
   }
 
 
@@ -38,7 +40,9 @@ export class WorkComponent extends BaseComponent implements OnInit {
       work: this.fb.group({
         id: [this.work.id || ''],
         description: [this.work.description || '', Validators.required],
-        'customer.id': [this.work.customer.id || '', Validators.required]
+        customer: this.fb.group({
+          id: [this.work.customer.id || '', Validators.required]
+        })
       })
     })
 
@@ -54,12 +58,13 @@ export class WorkComponent extends BaseComponent implements OnInit {
       this.workForm.controls.work.value.id = last.id + 1;
       this.service.addWork(this.workForm.controls.work.value);
       super.success("Registro salvo com sucesso!");
+      this.router.navigate(['/paginas/registros/lista-obras']);
     });
 
   }
 
   getWork(): void {
-    const id = +this.router.snapshot.paramMap.get('id');
+    const id = +this.route.snapshot.paramMap.get('id');
     if (id) {
       this.service.getWork(id)
         .subscribe(work => this.work = work);

@@ -15,7 +15,7 @@ export class ListDynamicComponent implements OnInit {
   rowsOnPage = 10;
   sortBy = "descricao";
   sortOrder = "asc";
-  domainType: DymanicDomainEnum;
+  tipo: DymanicDomainEnum;
 
   lista: DomainBase<string>[];
 
@@ -25,16 +25,16 @@ export class ListDynamicComponent implements OnInit {
 
   ngOnInit(): void {      
     this.route
-      .data.subscribe((dType: {domainType: number}) => {
-        this.service.getData(dType.domainType).then((data) => {
+      .data.subscribe((dType: {tipo: number}) => {
+        this.service.getData(dType.tipo).then((data) => {
           this.lista = data;
-          this.domainType = dType.domainType;
+          this.tipo = dType.tipo;
         });
       });
   }
   
   goToRegister() {
-    this.router.navigate(['/paginas/registros/cadastro-dinamico', {domainType: this.domainType}]); 
+    this.router.navigate(['/paginas/registros/cadastro-dinamico']); 
   }
 
   toInt(num: string) {

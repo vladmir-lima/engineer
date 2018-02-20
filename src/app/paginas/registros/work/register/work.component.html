@@ -7,11 +7,13 @@
 					<div class="row">
 						<div class="col-sm-6">
 							<div class="form-group">
-								<label for="customer">Cliente</label>
-								<select formControlName="customer.id" id="cliente" class="form-control">
-									<option *ngFor="let c of customers" [ngValue]="c.id">{{c.razaoSocial}}</option>
-								</select>
-								<show-errors [control]="cliente"></show-errors>
+								<div formGroupName="customer">
+									<label for="cliente">Cliente</label>
+									<select formControlName="id" id="cliente" class="form-control">
+										<option *ngFor="let c of customers" [ngValue]="c.id">{{c.razaoSocial}}</option>
+									</select>
+									<show-errors [control]="cliente"></show-errors>
+								</div>
 							</div>
 						</div>
 					</div>
