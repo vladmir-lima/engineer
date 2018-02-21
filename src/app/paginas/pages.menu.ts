@@ -27,7 +27,7 @@ export const PAGES_MENU = [
         }
       },
       {
-        path: 'registros',
+        path: 'cadastros',
         data: {
           menu: {
             title: 'Cadastros',

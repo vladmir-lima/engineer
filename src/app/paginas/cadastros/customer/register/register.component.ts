@@ -60,7 +60,7 @@ export class RegisterCustomerComponent extends BaseComponent implements OnInit {
       this.customerForm.controls.pessoaJuridica.value.address = this.customerForm.controls.address.value;
       this.service.addPessoa(this.customerForm.controls.pessoaJuridica.value);
       super.success("Registro salvo com sucesso!");
-      this.router.navigate(['/paginas/registros/lista-clientes']);
+      this.router.navigate(['/paginas/cadastros/lista-clientes']);
     });
 
   }

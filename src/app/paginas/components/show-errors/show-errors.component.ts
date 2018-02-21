@@ -37,9 +37,8 @@ export class ShowErrorsComponent {
 
   @Input()
   private control: AbstractControlDirective | AbstractControl;
-
-
-  shouldShowErrors (): boolean {
+ 
+  shouldShowErrors(): boolean {
 
 
     return this.control &&
@@ -54,7 +53,7 @@ export class ShowErrorsComponent {
   }
 
 
-  listOfErrors (): string[] {
+  listOfErrors(): string[] {
 
     return Object.keys(this.control.errors)
       .map(field => this.getMessage(field, this.control.errors[field], this.control));
@@ -62,16 +61,16 @@ export class ShowErrorsComponent {
   }
 
 
-  getError (): string {
+  getError(): string {
 
 
     //    console.log("show",this.control.error    
     //    console.log(Object.keys(this.control.er));
-    
+
     //    console.log(this.getMessage('required', this.control.errors['required'], thistrol));
-    
+
     //    console.log(['required'].map(field => this.getMessage(field, this.control.errors[field], tcontrol)));
-    
+
     var errors = Object.keys(this.control.errors)
       .map(field => this.getMessage(field, this.control.errors[field], this.control));
 
@@ -81,13 +80,13 @@ export class ShowErrorsComponent {
   }
 
 
-  private getMessage (type: string, params: any, control: any) {
+  private getMessage(type: string, params: any, control: any) {
 
 
     var fname = this.getControlName(control);
 
 
-    fname = fname.replace("_", " ").replace(" id", "").toLowerCase();
+    fname = fname.replace("_", " ").replace(" id", "").replace("description", "descricao").toLowerCase();
 
 
     fname = fname.replace(/\b\w/g, l => l.toUpperCase())
@@ -97,14 +96,14 @@ export class ShowErrorsComponent {
 
 
     //    console.log    (msg.replace("##FIELD##", fname));
-    
+
     return msg.replace("##FIELD##", fname);
 
 
   }
 
 
-  getControlName (c: AbstractControl): string | null {
+  getControlName(c: AbstractControl): string | null {
 
 
     const formGroup = c.parent.controls;

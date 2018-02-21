@@ -9,7 +9,7 @@
 							<div class="form-group">
 								<div formGroupName="customer">
 									<label for="cliente">Cliente</label>
-									<select formControlName="id" id="cliente" class="form-control">
+									<select formControlName="id" id="cliente" alt="Cliente" name="Cliente" class="form-control">
 										<option *ngFor="let c of customers" [ngValue]="c.id">{{c.razaoSocial}}</option>
 									</select>
 									<show-errors [control]="cliente"></show-errors>
@@ -20,7 +20,7 @@
 					<div class="row">
 						<div class="col-sm-6">
 							<div class="form-group">
-								<label for="description">Descrição</label> <input type="text" formControlName="description" class="form-control"
+								<label for="description">Descrição</label> <input type="text" alt="Descrição" name="Descrição" formControlName="description" class="form-control"
 									id="description" placeholder="Descrição da obra"
 								>
 								<show-errors [control]="description"></show-errors>

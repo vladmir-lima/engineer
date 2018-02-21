@@ -59,9 +59,9 @@ export class DynamicDomainComponent extends BaseComponent implements OnInit {
       this.service.addItem(this.dynamicForm.controls.domainBase.value);
       super.success("Registro salvo com sucesso!");
       if (this.tipo === DymanicDomainEnum.EXPENSE) {
-        this.router.navigate(['/paginas/registros/lista-despesas']);
+        this.router.navigate(['/paginas/cadastros/lista-despesas']);
       } else if (this.tipo === DymanicDomainEnum.SERVICE) {
-        this.router.navigate(['/paginas/registros/lista-servicos']);
+        this.router.navigate(['/paginas/cadastros/lista-servicos']);
       }
     });
 

@@ -8,7 +8,7 @@
 					<div class="row">
 						<div class="col-sm-6">
 							<div class="form-group">
-								<label for="cnpj">CNPJ</label> <input type="text" mask="99.999.999/9999-99" formControlName="cnpj" class="form-control  required" id="cnpj"
+								<label for="cnpj">CNPJ</label> <input type="text" alt="Cnpj" mask="99.999.999/9999-99" formControlName="cnpj" class="form-control  required" id="cnpj"
 									placeholder="Cnpj"
 								>	
 								<show-errors [control]="cnpj"></show-errors>																
@@ -18,7 +18,7 @@
 					<div class="row">
 						<div class="col-sm-6">
 							<div class="form-group">
-								<label for="razaoSocial">Razão Social</label> <input type="text" formControlName="razaoSocial" class="form-control"
+								<label for="razaoSocial">Razão Social</label> <input type="text" alt="Razão Social" formControlName="razaoSocial" class="form-control"
 									id="razaoSocial" placeholder="Razão Social"
 								>
 								<show-errors [control]="razaoSocial"></show-errors>		
@@ -26,7 +26,7 @@
 						</div>
 						<div class="col-sm-6">
 							<div class="form-group">
-								<label for="nomeFantasia">Nome Fantasia</label> <input type="text" formControlName="nomeFantasia" class="form-control"
+								<label for="nomeFantasia">Nome Fantasia</label> <input type="text" alt="Nome Fantasia" formControlName="nomeFantasia" class="form-control"
 									id="nomeFantasia" placeholder="Nome Fantasia"
 								>
 								<show-errors [control]="nomeFantasia"></show-errors>		
@@ -38,7 +38,7 @@
 							<label for="divEmail">Email</label>
 							<div class="input-group" id="divEmail">
 								<span class="input-group-addon input-group-addon-primary addon-left" id="basic-addon1">@</span> <input type="email"
-									formControlName="email" class="form-control" id="email" placeholder="Email"
+									formControlName="email" class="form-control" id="email" alt="Email" placeholder="Email"
 								>										
 							</div>
 							<show-errors [control]="email"></show-errors>	
@@ -46,7 +46,7 @@
 						<div class="col-sm-6">
 							<div class="form-group">
 								<label for="inscricaoEstadual">Inscrição Estadual</label> <input type="text" formControlName="inscricaoEstadual"
-									class="form-control" id="inscricaoEstadual" placeholder="Inscrição Estadual"
+									class="form-control" id="inscricaoEstadual" alt="Inscrição Estadual" placeholder="Inscrição Estadual"
 								>
 							</div>
 						</div>

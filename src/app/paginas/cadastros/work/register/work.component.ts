@@ -18,8 +18,8 @@ export class WorkComponent extends BaseComponent implements OnInit {
   work: Work;
   customers: PessoaJuridica[];
 
-  get cliente() {return this.workForm.get('customer.id')}
-  get description() {return this.workForm.get('description')}
+  get cliente() {return this.workForm.get('work.customer.id')}
+  get description() {return this.workForm.get('work.description')}
 
   constructor(private fb: FormBuilder,
     private route: ActivatedRoute,
@@ -58,7 +58,7 @@ export class WorkComponent extends BaseComponent implements OnInit {
       this.workForm.controls.work.value.id = last.id + 1;
       this.service.addWork(this.workForm.controls.work.value);
       super.success("Registro salvo com sucesso!");
-      this.router.navigate(['/paginas/registros/lista-obras']);
+      this.router.navigate(['/paginas/cadastros/lista-obras']);
     });
 
   }

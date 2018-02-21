@@ -21,7 +21,7 @@ export const routes: Routes = [
       {path: '', redirectTo: 'home', pathMatch: 'full'},
       {path: 'home', loadChildren: './home/home.module#HomeModule'},
       {path: 'dashboard', loadChildren: './dashboard/dashboard.module#DashboardModule'},
-      {path: 'registros', loadChildren: './registros/registers.module#RegistersModule'},
+      {path: 'cadastros', loadChildren: './cadastros/registers.module#RegistersModule'},
       {path: 'editors', loadChildren: './editors/editors.module#EditorsModule'},
       {path: 'components', loadChildren: './components/components.module#ComponentsModule'},
       {path: 'charts', loadChildren: './charts/charts.module#ChartsModule'},

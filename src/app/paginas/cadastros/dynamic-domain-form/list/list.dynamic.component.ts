@@ -34,7 +34,7 @@ export class ListDynamicComponent implements OnInit {
   }
   
   goToRegister() {
-    this.router.navigate(['/paginas/registros/cadastro-dinamico']); 
+    this.router.navigate(['/paginas/cadastros/cadastro-dinamico']); 
   }
 
   toInt(num: string) {
