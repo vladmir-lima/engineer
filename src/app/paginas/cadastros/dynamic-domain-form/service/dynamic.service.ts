@@ -79,7 +79,7 @@ export class DynamicService {
 
   ];
 
-  getData(dType?: DymanicDomainEnum): Promise<DomainBase<string>[]> {   
+  getData(dType?: DymanicDomainEnum): Promise<DomainBase<string>[]> {
     return new Promise((resolve, reject) => {
       setTimeout(() => {
         if (dType === DymanicDomainEnum.EXPENSE) {
@@ -92,7 +92,7 @@ export class DynamicService {
     });
   }
 
-  addItem(item: DomainBase<string>) {    
+  addItem(item: DomainBase<string>) {
     if (item.domainType === DymanicDomainEnum.EXPENSE) {
       this.dataTableDataExpenses.push(item);
     } else if (item.domainType === DymanicDomainEnum.SERVICE) {
@@ -112,7 +112,11 @@ export class DynamicService {
   }
 
   getDomainDescription: () => string =
-      () => {
-        return this.domainType === DymanicDomainEnum.EXPENSE ? 'Despesas' : 'Serviços';
-      }
+  () => {
+    return this.domainType === DymanicDomainEnum.EXPENSE ? 'Despesas' : 'Serviços';
+  }
+  
+  getExpenses(): Observable<DomainBase<string>[]>  {
+    return of(this.dataTableDataExpenses);
+  }
 }

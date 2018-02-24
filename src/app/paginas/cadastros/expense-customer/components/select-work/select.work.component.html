@@ -1,0 +1,5 @@
+
+<select id="obra" alt="Obra" name="Obra" class="form-control required">
+	<option *ngFor="let c of works" [ngValue]="c.id">{{c.description}}</option>
+</select>
+<show-errors [control]="obra"></show-errors>

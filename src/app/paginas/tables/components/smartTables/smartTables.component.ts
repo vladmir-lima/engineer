@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 
 import { SmartTablesService } from './smartTables.service';
+import { WorkComponent } from './work/work.component';
 import { LocalDataSource } from 'ng2-smart-table';
 
 @Component({
@@ -30,7 +31,8 @@ export class SmartTables {
     columns: {
       id: {
         title: 'ID',
-        type: 'number'
+        type: 'custom',
+        renderComponent: WorkComponent
       },
       firstName: {
         title: 'First Name',

@@ -1,12 +1,13 @@
 import {RegistersComponent} from './registers.component';
-
-import {ListCostumerComponent} from './customer/list/listcostumer.component';
-import {RegisterCustomerComponent} from './customer/register/register.component';
-import {DymanicDomainEnum} from './dynamic-domain-form/components/dymanic.domain.enum';
-import {ListDynamicComponent} from './dynamic-domain-form/list/list.dynamic.component';
-import {DynamicDomainComponent} from './dynamic-domain-form/register/dynamic.domain.component';
-import {ListWorkComponent} from './work/list/list.work.component';
-import {WorkComponent} from './work/register/work.component';
+import {ListCostumerComponent} from './customer/list';
+import {RegisterCustomerComponent} from './customer/register';
+import {DymanicDomainEnum} from './dynamic-domain-form/components';
+import {ListDynamicComponent} from './dynamic-domain-form/list';
+import {DynamicDomainComponent} from './dynamic-domain-form/register';
+import {ListExpenseCustomerComponent} from './expense-customer/list';
+import {ExpenseCustomerComponent} from './expense-customer/register';
+import {ListWorkComponent} from './work/list';
+import {WorkComponent} from './work/register';
 import {Routes, RouterModule} from '@angular/router';
 
 export const routes: Routes = [
@@ -23,7 +24,10 @@ export const routes: Routes = [
       {path: 'lista-servicos', component: ListDynamicComponent, data: {tipo: DymanicDomainEnum.SERVICE}},
       {path: 'lista-obras', component: ListWorkComponent},
       {path: 'cadastro-obra', component: WorkComponent},
-      {path: 'cadastro-obra/:id', component: WorkComponent}
+      {path: 'cadastro-obra/:id', component: WorkComponent},
+      {path: 'lista-despesas-obra', component: ListExpenseCustomerComponent},
+      {path: 'cadastro-despesas-obra', component: ExpenseCustomerComponent},
+      {path: 'cadastro-despesas-obra/:id', component: ExpenseCustomerComponent}
     ]
   }
 ];

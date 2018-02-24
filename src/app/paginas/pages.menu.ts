@@ -69,6 +69,14 @@ export const PAGES_MENU = [
                 title: 'Obras',
               }
             }
+          },
+          {
+            path: 'lista-despesas-obra',
+            data: {
+              menu: {
+                title: 'Despesas por Obra',
+              }
+            }
           }
         ]
       },

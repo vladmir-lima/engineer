@@ -65,5 +65,8 @@ export class WorkService {
     this.customerService.getPessoa(work.customer.id)
         .subscribe(pessoaJuridica => work.customer = pessoaJuridica)      
   }
-
+  
+  getWorks(): Observable<Work[]> {
+    return of(this.dataTableData);
+  }
 }
