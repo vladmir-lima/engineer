@@ -1,9 +1,10 @@
 import {Address} from '../../address/address';
 import {AlertService} from '../../components/alert/service/index';
 import {BaseComponent} from '../../components/base/base.component';
+import {Contact} from '../../components/contact';
 import {PessoaJuridica} from '../../components/pessoa/pessoajuridica';
 import {Component, OnInit, HostListener, OnChanges, Type} from '@angular/core';
-import {FormGroup, FormBuilder, Validators, FormControl, AbstractControl} from '@angular/forms';
+import {FormGroup, FormBuilder, Validators, FormControl, AbstractControl, FormArray} from '@angular/forms';
 import {CustomerService} from '../service/customer.service';
 import {ActivatedRoute, Router} from '@angular/router';
 
@@ -39,10 +40,13 @@ export class RegisterCustomerComponent extends BaseComponent implements OnInit {
         razaoSocial: [this.pessoaJuridica.razaoSocial || '', Validators.required],
         email: [this.pessoaJuridica.email || '', Validators.required],
         nomeFantasia: [this.pessoaJuridica.nomeFantasia || '', Validators.required],
-        inscricaoEstadual: [this.pessoaJuridica.inscricaoEstadual || '']
+        inscricaoEstadual: [this.pessoaJuridica.inscricaoEstadual || ''],
+        contacts: this.fb.array([])
       })
 
     })
+
+    this.setContacts(this.pessoaJuridica.contacts);
 
     //    console.log(this.buildNameFun('vladmir', 'lima', 'carvalho'));
 
@@ -58,6 +62,7 @@ export class RegisterCustomerComponent extends BaseComponent implements OnInit {
       let last: any = data[data.length - 1];
       this.customerForm.controls.pessoaJuridica.value.id = last.id + 1;
       this.customerForm.controls.pessoaJuridica.value.address = this.customerForm.controls.address.value;
+      this.customerForm.controls.pessoaJuridica.value.contacts = this.customerForm.controls.contacts.value;
       this.service.addPessoa(this.customerForm.controls.pessoaJuridica.value);
       super.success("Registro salvo com sucesso!");
       this.router.navigate(['/paginas/cadastros/lista-clientes']);
@@ -87,6 +92,25 @@ export class RegisterCustomerComponent extends BaseComponent implements OnInit {
       this.pessoaJuridica = new PessoaJuridica();
     }
   }
+
+  setContacts(contacts: Contact[]) {    
+    if (!contacts) {
+      contacts.push(new Contact());      
+    }
+    alert(contacts);
+    const newContacts = contacts.map(contact => this.fb.group(contact));
+    const contactsFormArray = this.fb.array(newContacts);
+    this.customerForm.setControl('contacts', contactsFormArray);
+  }
+
+  addContact() {
+    this.contacts.push(this.fb.group(new Contact()));
+  }
+
+  get contacts(): FormArray {
+    return this.customerForm.get('contacts') as FormArray;
+  };
+
 
 }
 

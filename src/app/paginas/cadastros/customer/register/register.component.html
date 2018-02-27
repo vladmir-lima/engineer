@@ -8,28 +8,28 @@
 					<div class="row">
 						<div class="col-sm-6">
 							<div class="form-group">
-								<label for="cnpj">CNPJ</label> <input type="text" alt="Cnpj" mask="99.999.999/9999-99" formControlName="cnpj" class="form-control  required" id="cnpj"
-									placeholder="Cnpj"
-								>	
-								<show-errors [control]="cnpj"></show-errors>																
-							</div>							
+								<label for="cnpj">CNPJ</label> <input type="text" alt="Cnpj" mask="99.999.999/9999-99" formControlName="cnpj"
+									class="form-control  required" id="cnpj" placeholder="Cnpj"
+								>
+								<show-errors [control]="cnpj"></show-errors>
+							</div>
 						</div>
 					</div>
 					<div class="row">
 						<div class="col-sm-6">
 							<div class="form-group">
-								<label for="razaoSocial">Razão Social</label> <input type="text" alt="Razão Social" formControlName="razaoSocial" class="form-control"
-									id="razaoSocial" placeholder="Razão Social"
+								<label for="razaoSocial">Razão Social</label> <input type="text" alt="Razão Social" formControlName="razaoSocial"
+									class="form-control" id="razaoSocial" placeholder="Razão Social"
 								>
-								<show-errors [control]="razaoSocial"></show-errors>		
+								<show-errors [control]="razaoSocial"></show-errors>
 							</div>
 						</div>
 						<div class="col-sm-6">
 							<div class="form-group">
-								<label for="nomeFantasia">Nome Fantasia</label> <input type="text" alt="Nome Fantasia" formControlName="nomeFantasia" class="form-control"
-									id="nomeFantasia" placeholder="Nome Fantasia"
+								<label for="nomeFantasia">Nome Fantasia</label> <input type="text" alt="Nome Fantasia" formControlName="nomeFantasia"
+									class="form-control" id="nomeFantasia" placeholder="Nome Fantasia"
 								>
-								<show-errors [control]="nomeFantasia"></show-errors>		
+								<show-errors [control]="nomeFantasia"></show-errors>
 							</div>
 						</div>
 					</div>
@@ -39,9 +39,9 @@
 							<div class="input-group" id="divEmail">
 								<span class="input-group-addon input-group-addon-primary addon-left" id="basic-addon1">@</span> <input type="email"
 									formControlName="email" class="form-control" id="email" alt="Email" placeholder="Email"
-								>										
+								>
 							</div>
-							<show-errors [control]="email"></show-errors>	
+							<show-errors [control]="email"></show-errors>
 						</div>
 						<div class="col-sm-6">
 							<div class="form-group">
@@ -51,25 +51,64 @@
 							</div>
 						</div>
 					</div>
+					<div class="row">
+						<div class="col-sm-12">
+							<div class="form-group">
+								<div formArrayName="contacts" class="well well-lg">
+									<div *ngFor="let contact of pessoaJuridica.contacts; let i=index" [formGroupName]="i">
+										<div class="row">
+											<div class="col-sm-8">
+												<div class="form-group">
+													<label for="name">Nome</label> <input type="text" formControlName="name" class="form-control" id="name" alt="Nome"
+														placeholder="nome"
+													>
+												</div>
+											</div>
+											<div class="col-sm-4">
+												<div class="form-group">
+													<label for="role">Função</label> <input type="text" formControlName="role" class="form-control" id="role"
+														alt="Função" placeholder="Função"
+													>
+												</div>
+											</div>
+										</div>
+										<div class="row">
+											<div class="col-sm-4">
+												<div class="form-group">
+													<label for="commercialPhone">Tel. Comercial</label> <input type="text" formControlName="commercialPhone"
+														class="form-control" id="commercialPhone" alt="Telefone Comercial" placeholder="Telefone Comercial"
+													>
+												</div>
+											</div>
+											<div class="col-sm-4">
+												<div class="form-group">
+													<label for="mobilePhone">Tel. Celular</label> <input type="text" formControlName="mobilePhone" class="form-control"
+														id="mobilePhone" alt="Telefone Celular" placeholder="Telefone Celular"
+													>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
 				</div>
 			</div>
 		</div>
 		<div class="separator"></div>
 		<div class="row">
-			<div class="col-md-12">						
+			<div class="col-md-12">
 				<address [form]='customerForm' [address]='pessoaJuridica.address'></address>
 			</div>
 		</div>
 		<div class="row">
 			<div class="col-md-6">
-				<button [disabled]="!customerForm.valid" type="submit" (click)="onsubmit()" class="btn btn-primary">Enviar</button>							
+				<button [disabled]="!customerForm.valid" type="submit" (click)="onsubmit()" class="btn btn-primary">Enviar</button>
 			</div>
-	</div>
+		</div>
 	</form>
 	</ba-card>
 </div>
 <p>Form value: {{ customerForm.value | json }}</p>
 <p>Form status: {{ customerForm.status | json }}</p>
-
-
-
