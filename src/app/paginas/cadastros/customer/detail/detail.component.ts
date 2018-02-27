@@ -1,5 +1,5 @@
 import {Address} from '../../address/address';
-import {PessoaJuridica} from '../components/pessoajuridica/pessoajuridica';
+import {PessoaJuridica} from '../../components/pessoa/pessoajuridica';
 import {Component, OnInit, Input, OnChanges} from '@angular/core';
 import {FormBuilder, FormArray, FormGroup, Validators} from '@angular/forms';
 

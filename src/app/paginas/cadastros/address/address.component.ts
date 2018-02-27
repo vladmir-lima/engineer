@@ -1,4 +1,4 @@
-import {PessoaJuridica} from '../customer/components/pessoajuridica/pessoajuridica';
+import {PessoaJuridica} from '../components/pessoa/pessoajuridica';
 import { Address } from './address';
 import {Component, OnInit, Input} from '@angular/core';
 import {FormBuilder, Validators, FormGroup} from '@angular/forms';

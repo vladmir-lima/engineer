@@ -1,6 +1,6 @@
 import {AlertService} from '../../components/alert/service';
 import {BaseComponent} from '../../components/base/base.component';
-import {PessoaJuridica} from '../../customer/components/pessoajuridica/pessoajuridica';
+import {PessoaJuridica} from '../../components/pessoa/pessoajuridica';
 import {CustomerService} from '../../customer/service/customer.service';
 import {Work} from '../components/work';
 import {Component, OnInit} from '@angular/core';

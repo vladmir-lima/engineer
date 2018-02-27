@@ -1,6 +1,6 @@
 import {EmailValidator} from '../../../../../theme/validators/email.validator';
 import {Address} from '../../../address/address';
-import {PessoaJuridica} from '../pessoajuridica/pessoajuridica';
+import {PessoaJuridica} from '../../../components/pessoa/pessoajuridica';
 
 import {Component, OnInit, Input} from '@angular/core';
 import {FormGroup, FormBuilder, Validators} from '@angular/forms';

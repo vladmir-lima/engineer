@@ -1,4 +1,4 @@
-import {PessoaJuridica} from '../components/pessoajuridica/pessoajuridica';
+import {PessoaJuridica} from '../../components/pessoa/pessoajuridica';
 import {Component, OnInit, Type} from '@angular/core';
 import {CustomerService} from '../service/customer.service';
 import {Router} from '@angular/router';

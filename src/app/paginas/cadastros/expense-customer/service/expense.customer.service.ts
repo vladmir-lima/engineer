@@ -1,6 +1,6 @@
 import {ExpenseCustomer} from '../components/expense.customer';
 import {Injectable} from '@angular/core';
-import {PessoaJuridica} from '../../customer/components/pessoajuridica/pessoajuridica';
+import {PessoaJuridica} from '../../components/pessoa/pessoajuridica';
 import {CustomerService} from '../../customer/service/customer.service';
 import {DymanicDomainEnum} from '../../dynamic-domain-form/components/dymanic.domain.enum';
 import {DynamicService} from '../../dynamic-domain-form/service/dynamic.service';

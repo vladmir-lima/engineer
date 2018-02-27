@@ -1,4 +1,4 @@
-import { PessoaJuridica } from '../../customer/components/pessoajuridica/pessoajuridica';
+import { PessoaJuridica } from '../../components/pessoa/pessoajuridica';
 export class Work {
 
   constructor(customer?: PessoaJuridica) {

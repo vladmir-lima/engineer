@@ -1,7 +1,7 @@
 import {Address} from '../../address/address';
 import {AlertService} from '../../components/alert/service/index';
 import {BaseComponent} from '../../components/base/base.component';
-import {PessoaJuridica} from '../components/pessoajuridica/pessoajuridica';
+import {PessoaJuridica} from '../../components/pessoa/pessoajuridica';
 import {Component, OnInit, HostListener, OnChanges, Type} from '@angular/core';
 import {FormGroup, FormBuilder, Validators, FormControl, AbstractControl} from '@angular/forms';
 import {CustomerService} from '../service/customer.service';

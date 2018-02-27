@@ -1,6 +1,6 @@
 import {Work} from '../components/work';
 import {Injectable} from '@angular/core';
-import {PessoaJuridica} from '../../customer/components/pessoajuridica/pessoajuridica';
+import {PessoaJuridica} from '../../components/pessoa/pessoajuridica';
 import {CustomerService} from '../../customer/service/customer.service';
 import {Observable} from 'rxjs';
 import {of} from 'rxjs/observable/of';
@@ -26,7 +26,7 @@ export class WorkService {
       'description': 'Obra em Goiânia',
       'customer': {
         'id': 1,
-        'razaoSocial': 'Pé grande ltda'
+        'razaoSocial': 'Indra company'
       }
     },
     {
@@ -34,7 +34,7 @@ export class WorkService {
       'description': 'Obra em Jataí',
       'customer': {
         'id': 2,
-        'razaoSocial': 'Padaria do Zé ltda'
+        'razaoSocial': 'Alarmes jequiti'
       }
     }
   ];
@@ -47,8 +47,7 @@ export class WorkService {
     });    
   }
 
-  addWork(work: Work) {
-    console.log(work.customer);
+  addWork(work: Work) {   
     this.getPessoaJuridica(work);
     this.dataTableData.push(work);
   }
