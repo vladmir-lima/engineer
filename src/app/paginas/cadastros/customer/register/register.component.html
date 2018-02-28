@@ -54,8 +54,8 @@
 					<div class="row">
 						<div class="col-sm-12">
 							<div class="form-group">
-								<div formArrayName="contacts" class="well well-lg">
-									<div *ngFor="let contact of pessoaJuridica.contacts; let i=index" [formGroupName]="i">
+								<div formArrayName="contacts">
+									<div *ngFor="let contact of contacts.controls; let i=index" [formGroupName]="i">
 										<div class="row">
 											<div class="col-sm-8">
 												<div class="form-group">

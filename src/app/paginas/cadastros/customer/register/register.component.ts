@@ -93,24 +93,28 @@ export class RegisterCustomerComponent extends BaseComponent implements OnInit {
     }
   }
 
-  setContacts(contacts: Contact[]) {    
-    if (!contacts) {
-      contacts.push(new Contact());      
+  setContacts(data: Contact[]) {
+    if (!data.entries.length) {     
+      data = [{
+        commercialPhone: '',
+        mobilePhone: '',
+        role: '',
+        name: ''
+      }]
     }
-    alert(contacts);
-    const newContacts = contacts.map(contact => this.fb.group(contact));
-    const contactsFormArray = this.fb.array(newContacts);
-    this.customerForm.setControl('contacts', contactsFormArray);
+      const newContacts = data.map(contact => this.fb.group(contact));
+      const contactsFormArray = this.fb.array(newContacts);
+      this.customerForm.setControl('pessoaJuridica.contacts', contactsFormArray);
+    }
+
+    addContact() {
+      this.contacts.push(this.fb.group(new Contact()));
+    }
+
+    get contacts(): FormArray {
+      return this.customerForm.get('pessoaJuridica.contacts') as FormArray;
+    };
+
+
   }
-
-  addContact() {
-    this.contacts.push(this.fb.group(new Contact()));
-  }
-
-  get contacts(): FormArray {
-    return this.customerForm.get('contacts') as FormArray;
-  };
-
-
-}
 
