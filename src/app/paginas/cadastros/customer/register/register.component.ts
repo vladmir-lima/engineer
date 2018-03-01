@@ -41,12 +41,12 @@ export class RegisterCustomerComponent extends BaseComponent implements OnInit {
         email: [this.pessoaJuridica.email || '', Validators.required],
         nomeFantasia: [this.pessoaJuridica.nomeFantasia || '', Validators.required],
         inscricaoEstadual: [this.pessoaJuridica.inscricaoEstadual || ''],
-        contacts: this.fb.array([])
+        contacts: this.fb.array([this.fb.group(new Contact())])
       })
 
     })
 
-    this.setContacts(this.pessoaJuridica.contacts);
+//    this.setContacts(this.pessoaJuridica.contacts);
 
     //    console.log(this.buildNameFun('vladmir', 'lima', 'carvalho'));
 
