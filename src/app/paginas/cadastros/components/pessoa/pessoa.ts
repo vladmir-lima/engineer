@@ -12,12 +12,7 @@ export class Pessoa {
   id: number;
   email?: string;
   address?: Address;
-  contacts?: Contact[] = [{
-    commercialPhone: '',
-    mobilePhone: '',
-    role: '',
-    name: ''
-  }];
+  contacts?: Contact[] = [];
   tipoPessoa?: TipoPessoaEnum;
   addAddress?(data: Address) {
     this.address = data || new Address();

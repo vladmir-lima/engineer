@@ -11,6 +11,7 @@ import {ActivatedRoute, Router} from '@angular/router';
 @Component({
   selector: 'register-customer',
   templateUrl: './register.component.html',
+  styleUrls: ['./register.component.scss']
 })
 
 export class RegisterCustomerComponent extends BaseComponent implements OnInit {
@@ -34,19 +35,23 @@ export class RegisterCustomerComponent extends BaseComponent implements OnInit {
     this.getPessoa();
 
     this.customerForm = this.fb.group({
+      contacts: this.fb.array([this.fb.group(new Contact())]),
       pessoaJuridica: this.fb.group({
         id: [this.pessoaJuridica.id || ''],
         cnpj: [this.pessoaJuridica.cnpj || '', Validators.required],
         razaoSocial: [this.pessoaJuridica.razaoSocial || '', Validators.required],
         email: [this.pessoaJuridica.email || '', Validators.required],
         nomeFantasia: [this.pessoaJuridica.nomeFantasia || '', Validators.required],
-        inscricaoEstadual: [this.pessoaJuridica.inscricaoEstadual || ''],
-        contacts: this.fb.array([this.fb.group(new Contact())])
+        inscricaoEstadual: [this.pessoaJuridica.inscricaoEstadual || '']        
       })
-
     })
+    
+  
+    if (this.pessoaJuridica.id) {    
+      this.setContacts();
+    }
 
-//    this.setContacts(this.pessoaJuridica.contacts);
+    //    this.setContacts(this.pessoaJuridica.contacts);
 
     //    console.log(this.buildNameFun('vladmir', 'lima', 'carvalho'));
 
@@ -93,28 +98,24 @@ export class RegisterCustomerComponent extends BaseComponent implements OnInit {
     }
   }
 
-  setContacts(data: Contact[]) {
-    if (!data.entries.length) {     
-      data = [{
-        commercialPhone: '',
-        mobilePhone: '',
-        role: '',
-        name: ''
-      }]
-    }
-      const newContacts = data.map(contact => this.fb.group(contact));
-      const contactsFormArray = this.fb.array(newContacts);
-      this.customerForm.setControl('pessoaJuridica.contacts', contactsFormArray);
-    }
-
-    addContact() {
-      this.contacts.push(this.fb.group(new Contact()));
-    }
-
-    get contacts(): FormArray {
-      return this.customerForm.get('pessoaJuridica.contacts') as FormArray;
-    };
-
-
+  setContacts() {
+    const newContacts = this.pessoaJuridica.contacts.map(contact => this.fb.group(contact));
+    const contactsFormArray = this.fb.array(newContacts);
+    this.customerForm.setControl('contacts', contactsFormArray);
   }
+
+  addContact() {
+    this.contacts.push(this.fb.group(new Contact()));
+  }
+  
+  removeContact(index: number) {
+    this.contacts.removeAt(index);
+  }
+
+  get contacts(): FormArray {
+    return this.customerForm.get('contacts') as FormArray;
+  };
+
+
+}
 
