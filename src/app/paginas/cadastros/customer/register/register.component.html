@@ -74,13 +74,13 @@
 				Contato</button>
 		</h3>
 		<div class="row">
-			<div class="col-sm-12">
+			<div class="col-sm-8">
 				<div class="form-group">
 					<div formArrayName="contacts">
 						<div *ngFor="let contact of contacts.controls; let i=index"
-							[formGroupName]="i" class="panel-body">
+							[formGroupName]="i" class="card list-group">
 							<div class="row">
-								<div class="col-sm-8">
+								<div class="col-sm-4">
 									<div class="form-group">
 										<label for="name">Nome</label> <input type="text"
 											formControlName="name" class="form-control" id="name"
@@ -114,8 +114,8 @@
 								</div>
 								<div class="col-sm-4">
 									<div class="form-group">
-										<button id="deleteItem" class="btn btn-danger btn-icon" (click)="removeContact(i)">X											
-										</button>
+										<button id="deleteItem" class="btn btn-danger btn-icon"
+											(click)="removeContact(i)">X</button>
 									</div>
 								</div>
 							</div>
