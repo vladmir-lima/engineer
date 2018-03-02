@@ -10,8 +10,7 @@ import {ActivatedRoute, Router} from '@angular/router';
 
 @Component({
   selector: 'register-customer',
-  templateUrl: './register.component.html',
-  styleUrls: ['./register.component.scss']
+  templateUrl: './register.component.html'  
 })
 
 export class RegisterCustomerComponent extends BaseComponent implements OnInit {
