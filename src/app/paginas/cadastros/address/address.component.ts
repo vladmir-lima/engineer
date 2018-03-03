@@ -53,24 +53,41 @@ export class AddressComponent implements OnInit {
       complemento: [this.address.complemento || '']
     }))
 
+    if (this.address.cep) {
+      this.getGoogleMapsByCepByUpdating(this.address.cep);
+    }
+
   }
 
   getGoogleMapsByCep(cep: string) {
-    this.http.get("http://maps.google.com/maps/api/geocode/json?address=" + cep.replace("-", "") + "&sensor=false").
-      map((response) => response.json()).
-      subscribe((data) => {this.setMap(data, cep)}
-      )
-
+    this.getMap(this.setMap, cep);
   }
 
-  setMap(data, cep) {
-    this.form.controls['address'].reset();
-    const mapsData = data.results[0];
+  getGoogleMapsByCepByUpdating(cep: string) {
+    this.getMap(this.loadMap, cep);
+  }
+
+  getMap(callBackFunction, cep: string) {
+    this.http.get("http://maps.google.com/maps/api/geocode/json?address=" + cep.replace("-", "") + "&sensor=false").
+      map((response) => response.json()).
+      subscribe((data) => {callBackFunction(data.results[0], cep)}
+      )
+  }
+
+  setMap = (data, cep) => {
+    this.form.controls['address'].reset();   
+    if (!data) {
+      return;
+    }
+    this.loadMap(data);
+    this.setFormValues(data, cep);
+  }
+
+  loadMap = (mapsData) => {
     if (!mapsData) {
       return;
     }
-    this.setFormValues(mapsData, cep);
-    let el = this._elementRef.nativeElement.querySelector('.google-maps');
+    let el = this._elementRef.nativeElement.querySelector('.google-maps');    
     GoogleMapsLoader.load((google) => {
       new google.maps.Map(el, {
         center: new google.maps.LatLng(mapsData.geometry.location.lat
@@ -81,7 +98,8 @@ export class AddressComponent implements OnInit {
     });
   }
 
-  setFormValues(mapsData, cep: string) {    
+  setFormValues(mapsData, cep: string) {
+
     this.form.controls['address'].patchValue({'bairro': mapsData.address_components ? mapsData.address_components[1].long_name || '' : ''});
     this.form.controls['address'].patchValue({'cidade': mapsData.address_components ? mapsData.address_components[2].long_name || '' : ''});
     this.form.controls['address'].patchValue({'estado': mapsData.address_components ? mapsData.address_components[3].long_name || '' : ''});

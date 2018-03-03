@@ -21,7 +21,7 @@ export class WorkService {
         'razaoSocial': 'Vladmir ltda'
       },
       'address': {
-        'cep': '74040070',
+        'cep': '74070040',
         'numero': 838,
         'cidade': 'Goiânia',
         'estado': 'Goiás',
@@ -34,20 +34,20 @@ export class WorkService {
     },
     {
       'id': 2,
-      'description': 'Obra em Goiânia',
+      'description': 'Obra em Cuiabá',
       'customer': {
         'id': 1,
         'razaoSocial': 'Indra company'
       },
       'address': {
-        'cep': '74040070',
+        'cep': '78005140',
         'numero': 838,
-        'cidade': 'Goiânia',
-        'estado': 'Goiás',
-        'bairro': 'Setor Aeroporto',
+        'cidade': 'Cuiabá',
+        'estado': 'Mato Grosso',
+        'bairro': 'Duque de Caxias II',
         'lote': '1',
         'id': 1,
-        'logradouro': 'Av. República do Líbano',
+        'logradouro': 'Rua Alice Borges ',
         'complemento': 'Próximo a praça do avião'
       },
     },
@@ -59,7 +59,7 @@ export class WorkService {
         'razaoSocial': 'Alarmes jequiti'
       },
       'address': {
-        'cep': '74040070',
+        'cep': '75800149',
         'numero': 838,
         'cidade': 'Goiânia',
         'estado': 'Goiás',
