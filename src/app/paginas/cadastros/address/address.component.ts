@@ -75,34 +75,38 @@ export class AddressComponent implements OnInit {
   }
 
   setMap = (data, cep) => {
-    this.form.controls['address'].reset();   
-    if (!data) {
+    this.form.controls['address'].reset();
+    if (this.isDataInvalid(data)) {
       return;
     }
     this.loadMap(data);
     this.setFormValues(data, cep);
   }
 
-  loadMap = (mapsData) => {
-    if (!mapsData) {
+  isDataInvalid(data) {
+    return !data;
+  }
+
+  loadMap = (data) => {
+    if (this.isDataInvalid(data)) {
       return;
     }
-    let el = this._elementRef.nativeElement.querySelector('.google-maps');    
+    let el = this._elementRef.nativeElement.querySelector('.google-maps'); 
     GoogleMapsLoader.load((google) => {
       new google.maps.Map(el, {
-        center: new google.maps.LatLng(mapsData.geometry.location.lat
-          , mapsData.geometry.location.lng),
+        center: new google.maps.LatLng(data.geometry.location.lat
+          , data.geometry.location.lng),
         zoom: 8,
         mapTypeId: google.maps.MapTypeId.ROADMAP
       });
     });
   }
 
-  setFormValues(mapsData, cep: string) {
+  setFormValues(data, cep: string) {
 
-    this.form.controls['address'].patchValue({'bairro': mapsData.address_components ? mapsData.address_components[1].long_name || '' : ''});
-    this.form.controls['address'].patchValue({'cidade': mapsData.address_components ? mapsData.address_components[2].long_name || '' : ''});
-    this.form.controls['address'].patchValue({'estado': mapsData.address_components ? mapsData.address_components[3].long_name || '' : ''});
+    this.form.controls['address'].patchValue({'bairro': data.address_components ? data.address_components[1].long_name || '' : ''});
+    this.form.controls['address'].patchValue({'cidade': data.address_components ? data.address_components[2].long_name || '' : ''});
+    this.form.controls['address'].patchValue({'estado': data.address_components ? data.address_components[3].long_name || '' : ''});
     this.form.controls['address'].patchValue({'cep': cep});
   }
 
