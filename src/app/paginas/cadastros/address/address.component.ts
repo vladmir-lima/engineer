@@ -58,14 +58,18 @@ export class AddressComponent implements OnInit {
   getGoogleMapsByCep(cep: string) {
     this.http.get("http://maps.google.com/maps/api/geocode/json?address=" + cep.replace("-", "") + "&sensor=false").
       map((response) => response.json()).
-      subscribe((data) => {this.setMap(data)}
+      subscribe((data) => {this.setMap(data, cep)}
       )
 
   }
 
-  setMap(data) {
+  setMap(data, cep) {
+    this.form.controls['address'].reset();
     const mapsData = data.results[0];
-    this.setFormValues(mapsData);
+    if (!mapsData) {
+      return;
+    }
+    this.setFormValues(mapsData, cep);
     let el = this._elementRef.nativeElement.querySelector('.google-maps');
     GoogleMapsLoader.load((google) => {
       new google.maps.Map(el, {
@@ -77,12 +81,11 @@ export class AddressComponent implements OnInit {
     });
   }
 
-  setFormValues(mapsData) {
-    this.form.controls['address'].patchValue({'bairro': mapsData.address_components[1].long_name});    
-    this.form.controls['address'].patchValue({'cidade': mapsData.address_components[2].long_name});
-    this.form.controls['address'].patchValue({'estado': mapsData.address_components[3].long_name});   
+  setFormValues(mapsData, cep: string) {    
+    this.form.controls['address'].patchValue({'bairro': mapsData.address_components ? mapsData.address_components[1].long_name || '' : ''});
+    this.form.controls['address'].patchValue({'cidade': mapsData.address_components ? mapsData.address_components[2].long_name || '' : ''});
+    this.form.controls['address'].patchValue({'estado': mapsData.address_components ? mapsData.address_components[3].long_name || '' : ''});
+    this.form.controls['address'].patchValue({'cep': cep});
   }
-
-
 
 }

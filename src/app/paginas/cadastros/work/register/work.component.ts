@@ -56,6 +56,7 @@ export class WorkComponent extends BaseComponent implements OnInit {
     this.service.getData().then((data) => {
       let last: any = data[data.length - 1];
       this.workForm.controls.work.value.id = last.id + 1;
+      this.workForm.controls.work.value.address = this.workForm.controls.address.value;
       this.service.addWork(this.workForm.controls.work.value);
       super.success("Registro salvo com sucesso!");
       this.router.navigate(['/paginas/cadastros/lista-obras']);

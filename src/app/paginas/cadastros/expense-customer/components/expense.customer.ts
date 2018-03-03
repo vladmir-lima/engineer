@@ -3,7 +3,7 @@ import {Expense} from '../../dynamic-domain-form/components/entity';
 export class ExpenseCustomer {
 
   constructor(work?: Work, expense?: Expense) {
-    this.addWork(work);
+    this.addWork(work);   
     this.addExpense(expense);
   }
 
@@ -21,5 +21,4 @@ export class ExpenseCustomer {
   addExpense?(data: Expense) {
     this.expense = data || new Expense();
   }
-
 }

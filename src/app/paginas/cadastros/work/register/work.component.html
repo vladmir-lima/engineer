@@ -31,6 +31,13 @@
 			</div>
 		</div>
 		<div class="separator"></div>
+		<h3>Endereço</h3>
+		<div class="row">
+			<div class="col-md-12">
+				<address [form]='workForm' [address]='work.address'></address>
+			</div>
+		</div>
+		<div class="separator"></div>
 		<div class="row">
 			<div class="col-md-6">
 				<button [disabled]="!workForm.valid" type="submit" (click)="onsubmit()" class="btn btn-primary">Enviar</button>

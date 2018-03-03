@@ -19,7 +19,18 @@ export class WorkService {
       'customer': {
         'id': 5,
         'razaoSocial': 'Vladmir ltda'
-      }
+      },
+      'address': {
+        'cep': '74040070',
+        'numero': 838,
+        'cidade': 'Goiânia',
+        'estado': 'Goiás',
+        'bairro': 'Setor Aeroporto',
+        'lote': '1',
+        'id': 1,
+        'logradouro': 'Av. República do Líbano',
+        'complemento': 'Próximo a praça do avião'
+      },
     },
     {
       'id': 2,
@@ -27,7 +38,18 @@ export class WorkService {
       'customer': {
         'id': 1,
         'razaoSocial': 'Indra company'
-      }
+      },
+      'address': {
+        'cep': '74040070',
+        'numero': 838,
+        'cidade': 'Goiânia',
+        'estado': 'Goiás',
+        'bairro': 'Setor Aeroporto',
+        'lote': '1',
+        'id': 1,
+        'logradouro': 'Av. República do Líbano',
+        'complemento': 'Próximo a praça do avião'
+      },
     },
     {
       'id': 3,
@@ -35,7 +57,18 @@ export class WorkService {
       'customer': {
         'id': 2,
         'razaoSocial': 'Alarmes jequiti'
-      }
+      },
+      'address': {
+        'cep': '74040070',
+        'numero': 838,
+        'cidade': 'Goiânia',
+        'estado': 'Goiás',
+        'bairro': 'Setor Aeroporto',
+        'lote': '1',
+        'id': 1,
+        'logradouro': 'Av. República do Líbano',
+        'complemento': 'Próximo a praça do avião'
+      },
     }
   ];
 

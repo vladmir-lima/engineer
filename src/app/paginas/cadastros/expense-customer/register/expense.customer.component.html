@@ -64,7 +64,8 @@
 						<div class="col-sm-4">
 							<div class="form-group">
 								<label for="initialDate">Data Inicial</label> <input type="text" alt="Data Inicial" formControlName="initialDate"
-									bsDatepicker [bsConfig]="dpConfig"  #dp="bsDatepicker" class="form-control required" id="initialDate" placeholder="Data Inicial"
+									bsDatepicker [bsConfig]="dpConfig" #dp="bsDatepicker" class="form-control required" id="initialDate"
+									placeholder="Data Inicial"
 								>
 								<show-errors [control]="initialDate"></show-errors>
 							</div>
@@ -72,7 +73,7 @@
 						<div class="col-sm-4">
 							<div class="form-group">
 								<label for="finalDate">Data Final</label> <input type="text" alt="Data Final" formControlName="finalDate" bsDatepicker
-									[bsConfig]="dpConfig"  #dp="bsDatepicker" class="form-control required" id="finalDate" placeholder="Data Final"
+									[bsConfig]="dpConfig" #dp="bsDatepicker" class="form-control required" id="finalDate" placeholder="Data Final"
 								>
 								<show-errors [control]="finalDate"></show-errors>
 							</div>
