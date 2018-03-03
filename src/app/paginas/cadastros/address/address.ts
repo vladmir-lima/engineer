@@ -7,4 +7,5 @@ export class Address {
   lote: string;
   logradouro: string;
   complemento: string;
+  estado: string;
 }

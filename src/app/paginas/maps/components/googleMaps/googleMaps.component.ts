@@ -19,6 +19,7 @@ export class GoogleMaps {
       new google.maps.Map(el, {
         center: new google.maps.LatLng(44.5403, -78.5463),
         zoom: 8,
+        KEY: 'qwertyuiopasdfghjklzxcvbnm',
         mapTypeId: google.maps.MapTypeId.ROADMAP
       });
     });

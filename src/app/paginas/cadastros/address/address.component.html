@@ -1,36 +1,46 @@
 <div [formGroup]="form">
-	<div formGroupName="address">	
+	<div formGroupName="address">
 		<div class="row">
 			<div class="col-md-4">
 				<div class="form-group">
-					<label for="cep">CEP</label> <input type="text" mask="99999-999" alt="Cep" formControlName="cep" class="form-control" id="cep" placeholder="cep">
-					<show-errors [control]="cep"></show-errors>		
+					<label for="cep">CEP</label> <input type="text" (blur)="getGoogleMapsByCep($event.target.value)" mask="99999-999" alt="Cep" formControlName="cep" class="form-control"
+						id="cep" placeholder="cep"
+					>
+					<show-errors [control]="cep"></show-errors>
 				</div>
 			</div>
 			<div class="col-md-4">
 				<div class="form-group">
-					<label for="cidade">Cidade</label> <input type="text" alt="Cidade" formControlName="cidade" class="form-control" id="cidade"
-						placeholder="Cidade"
+					<label for="cidade">Cidade</label> <input type="text" alt="Cidade" formControlName="cidade" class="form-control"
+						id="cidade" placeholder="Cidade"
 					>
-					<show-errors [control]="cidade"></show-errors>		
+					<show-errors [control]="cidade"></show-errors>
 				</div>
 			</div>
 			<div class="col-md-4">
 				<div class="form-group">
-					<label for="bairro">Bairro</label> <input type="text" alt="Bairro" formControlName="bairro" class="form-control" id="bairro"
-						placeholder="Bairro"
+					<label for="estado">Estado</label> <input type="text" alt="Estado" formControlName="estado" class="form-control"
+						id="estado" placeholder="Estado"
 					>
-					<show-errors [control]="bairro"></show-errors>		
+					<show-errors [control]="bairro"></show-errors>
 				</div>
-			</div>
+			</div>			
 		</div>
 		<div class="row">
 			<div class="col-md-4">
 				<div class="form-group">
-					<label for="numero">Número</label> <input type="text" alt="Número" numberOnly formControlName="numero" class="form-control" id="numero"
-						placeholder="Número"
+					<label for="bairro">Bairro</label> <input type="text" alt="Bairro" formControlName="bairro" class="form-control"
+						id="bairro" placeholder="Bairro"
 					>
-					<show-errors [control]="numero"></show-errors>		
+					<show-errors [control]="bairro"></show-errors>
+				</div>
+			</div>
+			<div class="col-md-4">
+				<div class="form-group">
+					<label for="numero">Número</label> <input type="text" alt="Número" numberOnly formControlName="numero" class="form-control"
+						id="numero" placeholder="Número"
+					>
+					<show-errors [control]="numero"></show-errors>
 				</div>
 			</div>
 			<div class="col-md-4">
@@ -44,19 +54,22 @@
 		<div class="row">
 			<div class="col-md-6">
 				<div class="form-group">
-					<label for="logradouro">Logradouro</label> <input type="text" alt="Logradouro" formControlName="logradouro" class="form-control"
-						id="logradouro" placeholder="Logradouro"
+					<label for="logradouro">Logradouro</label> <input type="text" alt="Logradouro" formControlName="logradouro"
+						class="form-control" id="logradouro" placeholder="Logradouro"
 					>
-					<show-errors [control]="logradouro"></show-errors>		
+					<show-errors [control]="logradouro"></show-errors>
 				</div>
 			</div>
 			<div class="col-md-6">
 				<div class="form-group">
-					<label for="complemento">Complemento</label> <input type="text" alt ="Complemento" formControlName="complemento" class="form-control"
-						id="complemento" placeholder="Complemento"
+					<label for="complemento">Complemento</label> <input type="text" alt="Complemento" formControlName="complemento"
+						class="form-control" id="complemento" placeholder="Complemento"
 					>
 				</div>
 			</div>
-		</div>	
+		</div>
+		<ba-card cardTitle="Google Maps">
+		<div class="google-maps"></div>
+		</ba-card>
 	</div>
 </div>

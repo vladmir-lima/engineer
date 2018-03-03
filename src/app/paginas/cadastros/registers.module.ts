@@ -48,7 +48,7 @@ import {DatepickerModule, BsDropdownModule, BsDatepickerModule} from 'ngx-bootst
     CurrencyMaskModule,
     DatepickerModule.forRoot(),
     BsDatepickerModule.forRoot(),
-    BsDropdownModule.forRoot()
+    BsDropdownModule.forRoot()   
   ],
   declarations: [
     RegistersComponent,
