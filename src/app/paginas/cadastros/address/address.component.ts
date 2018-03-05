@@ -96,7 +96,7 @@ export class AddressComponent implements OnInit {
       new google.maps.Map(el, {
         center: new google.maps.LatLng(data.geometry.location.lat
           , data.geometry.location.lng),
-        zoom: 8,
+        zoom: 15,
         mapTypeId: google.maps.MapTypeId.ROADMAP
       });
     });
