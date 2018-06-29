@@ -32,6 +32,7 @@ import {ExpensesTableService} from './expense-customer/service';
 import {CurrencyMaskModule} from "ng2-currency-mask";
 import {DateTimeFormatPipe} from './components/filter/date.time.format.pipe';
 import {DatepickerModule, BsDropdownModule, BsDatepickerModule} from 'ngx-bootstrap';
+import { ReportsComponent } from './expense-customer/reports/reports.component';
 
 @NgModule({
   imports: [
@@ -66,7 +67,8 @@ import {DatepickerModule, BsDropdownModule, BsDatepickerModule} from 'ngx-bootst
     ListExpenseCustomerComponent,
     ExpenseCustomerComponent,
     CustomListExpenseCustomerComponent,
-    DateTimeFormatPipe
+    DateTimeFormatPipe,
+    ReportsComponent
 
   ],
   providers: [

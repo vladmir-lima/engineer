@@ -1,22 +1,22 @@
 <section class="chartist">
   <div class="row">
-    <div class="col-md-12 ">
-      <ba-card cardTitle="Gráficos" baCardClass="with-scroll">
-        <h5 translate>{{'Gastos por obras'}}</h5>
+    <div class="col-md-6 ">
+      <ba-card cardTitle="chart.lines" baCardClass="with-scroll">
+        <h5 translate>{{'chart.simple_line_chart'}}</h5>
         <ba-chartist-chart baChartistChartClass="ct-chart"
                            baChartistChartType="Line"
                            [baChartistChartData]="data['simpleLineData']"
                            [baChartistChartOptions]="data['simpleLineOptions']">
         </ba-chartist-chart>
 
-        <h5 translate>{{'Por área'}}</h5>
+        <h5 translate>{{'chart.line_chart'}}</h5>
         <ba-chartist-chart baChartistChartClass="ct-chart"
                            baChartistChartType="Line"
                            [baChartistChartData]="data['areaLineData']"
                            [baChartistChartOptions]="data['areaLineOptions']">
         </ba-chartist-chart>
 
-        <h5 translate>{{'Por área 3D'}}</h5>
+        <h5 translate>{{'chart.bi_polar_line_chart'}}</h5>
         <ba-chartist-chart baChartistChartClass="ct-chart"
                            baChartistChartType="Line"
                            [baChartistChartData]="data['biLineData']"
@@ -25,7 +25,7 @@
       </ba-card>
     </div>
 
-   <!--  <div class="col-md-6 ">
+    <div class="col-md-6 ">
       <ba-card cardTitle="chart.bars" baCardClass="with-scroll">
         <h5 translate>{{'chart.simple_bar_chart'}}</h5>
         <ba-chartist-chart baChartistChartClass="ct-chart"
@@ -49,7 +49,7 @@
                            [baChartistChartOptions]="data['stackedBarOptions']">
         </ba-chartist-chart>
       </ba-card>
-    </div> -->
+    </div>
   </div>
 
   <div class="row">

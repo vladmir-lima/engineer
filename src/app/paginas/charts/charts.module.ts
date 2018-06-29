@@ -8,6 +8,10 @@ import { Charts } from './charts.component';
 import { ChartistJs } from './components/chartistJs/chartistJs.component';
 import { ChartistJsService } from './components/chartistJs/chartistJs.service';
 import { AppTranslationModule } from '../../app.translation.module';
+import { CustomerService } from '../cadastros/customer/service';
+import { DynamicService } from '../cadastros/dynamic-domain-form/service';
+import { ExpenseCustomerService } from '../cadastros/expense-customer/service';
+import { WorkService } from '../cadastros/work/service';
 
 @NgModule({
   imports: [
@@ -22,7 +26,11 @@ import { AppTranslationModule } from '../../app.translation.module';
     ChartistJs
   ],
   providers: [
-    ChartistJsService
+    ChartistJsService,
+    ExpenseCustomerService,
+    WorkService,
+    DynamicService,
+    CustomerService
   ]
 })
 export class ChartsModule {}

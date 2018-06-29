@@ -1,4 +1,3 @@
-import { ExpenseCustomerService } from '../../../cadastros/expense-customer/service';
 import {Component} from '@angular/core';
 
 import {ChartistJsService} from './chartistJs.service';
@@ -13,7 +12,7 @@ export class ChartistJs {
 
   data:any;
 
-  constructor(private _chartistJsService: ChartistJsService, private _expenseCustomerService: ExpenseCustomerService) {
+  constructor(private _chartistJsService:ChartistJsService) {
   }
 
   ngOnInit() {

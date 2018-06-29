@@ -1,6 +1,6 @@
 import {Injectable} from '@angular/core';
 
-import {BaThemeConfigProvider} from '../../../../theme';
+import {BaThemeConfigProvider} from '../../../../../theme';
 
 @Injectable()
 export class ChartistJsService {
@@ -15,7 +15,7 @@ export class ChartistJsService {
       }
     },
     simpleLineData: {
-      labels: ['Combustível', 'Segurança', 'Administração', 'Man. em geral', 'Desp. com pessoal'],
+      labels: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri'],
       series: [
         [20, 20, 12, 45, 50],
         [10, 45, 30, 14, 12],
@@ -37,7 +37,7 @@ export class ChartistJsService {
       showArea: true
     },
     biLineData: {
-       labels: ['Combustível', 'Segurança', 'Administração', 'Man. em geral', 'Despesa com pessoal'],
+      labels: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'],
       series: [
         [1, 2, 3, 1, -2, 0, 1],
         [-2, -1, -2, -1, -2.5, -1, -2],

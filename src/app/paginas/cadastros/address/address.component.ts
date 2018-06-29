@@ -54,7 +54,7 @@ export class AddressComponent implements OnInit {
     }))
 
     if (this.address.cep) {
-      this.getGoogleMapsByCepByUpdating(this.address.cep);
+      this.getGoogleMapsByCepForUpdating(this.address.cep);
     }
 
   }
@@ -63,7 +63,7 @@ export class AddressComponent implements OnInit {
     this.getMap(this.setMap, cep);
   }
 
-  getGoogleMapsByCepByUpdating(cep: string) {
+  getGoogleMapsByCepForUpdating(cep: string) {
     this.getMap(this.loadMap, cep);
   }
 
