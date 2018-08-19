@@ -1,11 +1,13 @@
 import {Injectable} from '@angular/core';
 
 import {BaThemeConfigProvider} from '../../../../theme';
+import { ExpenseCustomer } from '../../../cadastros/expense-customer/components';
+import { Chart } from '../chart/chart';
 
 @Injectable()
 export class ChartistJsService {
 
-  private _data = {
+  private _data: Chart = {
     simpleLineOptions: {
       color: this._baConfig.get().colors.defaultText,
       fullWidth: true,
@@ -29,7 +31,7 @@ export class ChartistJsService {
       series: [
         [5, 9, 7, 8, 5, 3, 5, 4]
       ]
-    },
+    },    
     areaLineOptions: {
       fullWidth: true,
       height: '300px',
@@ -175,6 +177,14 @@ export class ChartistJsService {
 
   public getAll() {
     return this._data;
+  }
+  
+  public getDynamicData(data: ExpenseCustomer[]): Chart {   
+    const descriptions = data.map(function(a) {return a["description"];});
+    const values = data.map(function(a) {return a["value"];}); 
+    this._data.simpleLineData.labels = descriptions; 
+    this._data.simpleLineData.series =[[1,2]];   
+    return this._data; 
   }
 
   public getResponsive(padding, offset) {

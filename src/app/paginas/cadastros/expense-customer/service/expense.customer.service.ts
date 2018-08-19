@@ -94,9 +94,12 @@ export class ExpenseCustomerService {
     return this.expensesCustomerList$;
   }
 
-  getAExpensesCustomerByfFilter(idWork: number, idExpense: number): void {
-    this.expensesCustomer.next(this.dataTableData.filter(item => !idExpense && item.work.id === idWork || (item.work.id === idWork && item.expense.id === idExpense)));
-     console.log(this.dataTableData);
+  getAExpensesCustomerByfFilter(idWork: number, idExpense: number): void {       
+    this.expensesCustomer.next(this.dataTableData.filter(item => !idExpense && item.work.id === idWork || (item.work.id === idWork && item.expense.id === idExpense)));    
+  }
+  
+  getAExpensesCustomerByWork(idWork: number): Observable<ExpenseCustomer[]> {    
+    return of(this.dataTableData.filter(item => item.work.id === idWork));    
   }
 
   getAllExpensesCustomer(): Observable<ExpenseCustomer[]> {   

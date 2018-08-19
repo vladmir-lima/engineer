@@ -80,15 +80,13 @@ export class DynamicService {
   ];
 
   getData(dType?: DymanicDomainEnum): Promise<DomainBase<string>[]> {
-    return new Promise((resolve, reject) => {
-      setTimeout(() => {
+    return new Promise((resolve, reject) => { 
         if (dType === DymanicDomainEnum.EXPENSE) {
           resolve(this.dataTableDataExpenses);
         } else if (dType === DymanicDomainEnum.SERVICE) {
           resolve(this.dataTableDataServices);
         }
-        this.domainType = dType;
-      }, 500);
+        this.domainType = dType;     
     });
   }
 

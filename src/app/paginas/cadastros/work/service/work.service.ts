@@ -73,10 +73,8 @@ export class WorkService {
   ];
 
   getData(): Promise<Work[]> {
-    return new Promise((resolve, reject) => {
-      setTimeout(() => {
-        resolve(this.dataTableData);
-      }, 2000);
+    return new Promise((resolve, reject) => {   
+        resolve(this.dataTableData);    
     });    
   }
 

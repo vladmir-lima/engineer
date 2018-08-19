@@ -32,7 +32,7 @@ export class BaChartistChart {
     this.onChartReady.emit(this.chart);
   }
 
-  ngOnChanges(changes) {
+  ngOnChanges(changes) {   
     if (this.chart) {
       (<any>this.chart).update(this.baChartistChartData, this.baChartistChartOptions);
     }

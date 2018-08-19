@@ -1,6 +1,6 @@
+import { Charts } from './';
 import { Routes, RouterModule }  from '@angular/router';
 
-import { Charts } from './charts.component';
 import { ChartistJs } from './components/chartistJs/chartistJs.component';
 
 // noinspection TypeScriptValidateTypes

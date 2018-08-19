@@ -67,6 +67,7 @@ export class ExpenseCustomerComponent extends BaseComponent implements OnInit {
       })
     })
 
+
     this.getWorks();
     this.getExpenses();
 
@@ -76,6 +77,11 @@ export class ExpenseCustomerComponent extends BaseComponent implements OnInit {
     this.dpConfig = Object.assign({}, {containerClass: 'theme-green', showWeekNumbers: true, minDate: new Date(2016, 1, 1), maxDate: new Date(2025, 1, 1)});
     this._localeService.use(this.locale);
     defineLocale(this.locale, ptBrLocale);
+
+    this.idWork = this.expenseCustomer.work.id;
+    this.idExpense = this.expenseCustomer.id;
+//    this.setList();
+
 
   }
 
@@ -124,7 +130,7 @@ export class ExpenseCustomerComponent extends BaseComponent implements OnInit {
     });
   }
 
-  setList() {
+  setList() {    
     this.service.getAExpensesCustomerByfFilter(this.idWork, this.idExpense);
   }
 

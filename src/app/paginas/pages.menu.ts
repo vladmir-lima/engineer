@@ -128,7 +128,7 @@ export const PAGES_MENU = [
         path: 'charts',
         data: {
           menu: {
-            title: 'general.menu.charts',
+            title: 'Gráficos',
             icon: 'ion-stats-bars',
             selected: false,
             expanded: false,
@@ -140,7 +140,7 @@ export const PAGES_MENU = [
             path: 'chartist-js',
             data: {
               menu: {
-                title: 'general.menu.chartist_js',
+                title: 'Pizza/Rosca',
               }
             }
           }
