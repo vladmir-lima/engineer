@@ -1,13 +1,11 @@
 import {Injectable} from '@angular/core';
 
-import {BaThemeConfigProvider} from '../../../../theme';
-import { ExpenseCustomer } from '../../../cadastros/expense-customer/components';
-import { Chart } from '../chart/chart';
+import {BaThemeConfigProvider} from '../../../../../theme';
 
 @Injectable()
 export class ChartistJsService {
 
-  private _data: Chart = {
+  private _data = {
     simpleLineOptions: {
       color: this._baConfig.get().colors.defaultText,
       fullWidth: true,
@@ -17,7 +15,7 @@ export class ChartistJsService {
       }
     },
     simpleLineData: {
-      labels: ['Combustível', 'Segurança', 'Administração', 'Man. em geral', 'Desp. com pessoal'],
+      labels: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri'],
       series: [
         [20, 20, 12, 45, 50],
         [10, 45, 30, 14, 12],
@@ -31,7 +29,7 @@ export class ChartistJsService {
       series: [
         [5, 9, 7, 8, 5, 3, 5, 4]
       ]
-    },    
+    },
     areaLineOptions: {
       fullWidth: true,
       height: '300px',
@@ -39,7 +37,7 @@ export class ChartistJsService {
       showArea: true
     },
     biLineData: {
-       labels: ['Combustível', 'Segurança', 'Administração', 'Man. em geral', 'Despesa com pessoal'],
+      labels: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'],
       series: [
         [1, 2, 3, 1, -2, 0, 1],
         [-2, -1, -2, -1, -2.5, -1, -2],
@@ -177,14 +175,6 @@ export class ChartistJsService {
 
   public getAll() {
     return this._data;
-  }
-  
-  public getDynamicData(data: ExpenseCustomer[]): Chart {   
-    const descriptions = data.map(function(a) {return a["description"];});
-    const values = data.map(function(a) {return a["value"];}); 
-    this._data.simpleLineData.labels = descriptions; 
-    this._data.simpleLineData.series =[[1,2]];   
-    return this._data; 
   }
 
   public getResponsive(padding, offset) {

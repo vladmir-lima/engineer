@@ -1,3 +1,4 @@
+import { BaThemeConfigProvider } from '../../../../theme';
 import {ExpenseCustomer} from '../components/expense.customer';
 import {Injectable} from '@angular/core';
 import {PessoaJuridica} from '../../components/pessoa/pessoajuridica';
@@ -11,13 +12,34 @@ import {of} from 'rxjs/observable/of';
 @Injectable()
 export class ExpenseCustomerService {
 
-  constructor(private workService: WorkService, private dynamicService: DynamicService) {
+  constructor(private workService: WorkService, private dynamicService: DynamicService, private _baConfig:BaThemeConfigProvider) {
 
-  }
-
+  }  
+  
   private expensesCustomer = new Subject<ExpenseCustomer[]>();
 
   expensesCustomerList$ = this.expensesCustomer.asObservable();
+  
+   private _data = {
+    simpleLineOptions: {
+      color: this._baConfig.get().colors.defaultText,
+      fullWidth: true,
+      height: '300px',
+      chartPadding: {
+        right: 40
+      }
+    },
+    simpleLineData: {
+      labels: ['Combustível', 'Segurança', 'Administração', 'Man. em geral', 'Despesa com pessoal'],
+      series: [
+        [10, 15, 25, 45, 70]        
+      ]
+    }    
+  }
+  
+  public getAll() {
+    return this._data;
+  }
 
   dataTableData: ExpenseCustomer[] = [
     {
@@ -71,7 +93,7 @@ export class ExpenseCustomerService {
   }
 
   getExpenseCustomer(id: number): Observable<ExpenseCustomer> {
-    let expenseCustomer: ExpenseCustomer = this.dataTableData.find(item => item.id === id);
+    const expenseCustomer: ExpenseCustomer = this.dataTableData.find(item => item.id === id);
     if (expenseCustomer) {
       this.getWork(expenseCustomer);
       this.getExpense(expenseCustomer);
