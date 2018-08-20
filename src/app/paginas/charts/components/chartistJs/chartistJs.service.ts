@@ -153,7 +153,7 @@ export class ChartistJsService {
       weight: '300px',
       labelDirection: 'explode',
       labelInterpolationFnc: function (value) {
-        return value[0];
+       return value;
       }
     },
     simpleDonutData: {
@@ -181,9 +181,15 @@ export class ChartistJsService {
   
   public getDynamicData(data: ExpenseCustomer[]): Chart {   
     const descriptions = data.map(function(a) {return a["description"];});
+    console.log(descriptions);
     const values = data.map(function(a) {return a["value"];}); 
-    this._data.simpleLineData.labels = descriptions; 
-    this._data.simpleLineData.series =[[1,2]];   
+//    this._data.simpleLineData.labels = descriptions; 
+    this._data.simplePieData.series=values;   
+    this._data.labelsPieData.labels=descriptions;
+    this._data.labelsPieData.series=values;    
+    this._data.simpleDonutData.labels=descriptions;
+    this._data.simpleDonutData.series=values;
+    
     return this._data; 
   }
 
