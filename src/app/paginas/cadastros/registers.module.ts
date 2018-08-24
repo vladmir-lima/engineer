@@ -15,6 +15,9 @@ import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {CommonModule} from '@angular/common';
 import {routing} from './registers.routing';
 import {RegistersComponent} from './';
+import { Charts } from './charts';
+import { ChartistJs } from './charts/components/chartistJs';
+import { ChartistJsService } from './charts/components/chartistJs/chartistJs.service';
 import {CustomerService} from './customer/service';
 import {ListCostumerComponent} from './customer/list';
 import {RegisterCustomerComponent} from './customer/register';
@@ -68,7 +71,9 @@ import { ReportsComponent } from './expense-customer/reports/reports.component';
     ExpenseCustomerComponent,
     CustomListExpenseCustomerComponent,
     DateTimeFormatPipe,
-    ReportsComponent
+    ReportsComponent,
+    Charts, 
+    ChartistJs 
 
   ],
   providers: [
@@ -77,7 +82,8 @@ import { ReportsComponent } from './expense-customer/reports/reports.component';
     WorkService,
     AlertService,
     ExpenseCustomerService,
-    ExpensesTableService
+    ExpensesTableService,
+    ChartistJsService
   ]
 })
 export class RegistersModule {

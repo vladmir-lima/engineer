@@ -1,3 +1,4 @@
+import { ChartistJs } from './charts/components/chartistJs';
 import {RegistersComponent} from './registers.component';
 import {ListCostumerComponent} from './customer/list';
 import {RegisterCustomerComponent} from './customer/register';
@@ -23,6 +24,7 @@ export const routes: Routes = [
       {path: 'cadastro-dinamico', component: DynamicDomainComponent},
       {path: 'lista-servicos', component: ListDynamicComponent, data: {tipo: DymanicDomainEnum.SERVICE}},
       {path: 'lista-obras', component: ListWorkComponent},
+      {path: 'charts/chartist-js', component: ChartistJs},
       {path: 'cadastro-obra', component: WorkComponent},
       {path: 'cadastro-obra/:id', component: WorkComponent},
       {path: 'lista-despesas-obra', component: ListExpenseCustomerComponent},

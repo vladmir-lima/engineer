@@ -1,8 +1,8 @@
-import {BaChartistChart} from '../../../../theme/components';
-import {ExpenseCustomer} from '../../../cadastros/expense-customer/components';
-import {ExpenseCustomerService} from '../../../cadastros/expense-customer/service';
-import {Work} from '../../../cadastros/work/components/work';
-import {WorkService} from '../../../cadastros/work/service';
+import {BaChartistChart} from '../../../../../theme/components';
+import {ExpenseCustomer} from '../../../expense-customer/components';
+import {ExpenseCustomerService} from '../../../expense-customer/service';
+import {Work} from '../../../work/components/work';
+import {WorkService} from '../../../work/service';
 import {Chart} from '../chart/chart';
 import {Component, OnInit, ViewChild} from '@angular/core';
 import {ChartistJsService} from './chartistJs.service';

@@ -77,7 +77,29 @@ export const PAGES_MENU = [
                 title: 'Despesas por Obra',
               }
             }
-          }
+          },
+          {
+            path: 'charts',
+            data: {
+              menu: {
+                title: 'Gráficos',
+                icon: 'ion-stats-bars',
+                selected: false,
+                expanded: false,
+                order: 400,
+              }
+            },
+            children: [
+              {
+                path: 'chartist-js',
+                data: {
+                  menu: {
+                    title: 'Pizza/Rosca',
+                  }
+                }
+              }
+            ]
+          },
         ]
       },
       {
@@ -119,28 +141,6 @@ export const PAGES_MENU = [
             data: {
               menu: {
                 title: 'general.menu.tree_view',
-              }
-            }
-          }
-        ]
-      },
-      {
-        path: 'charts',
-        data: {
-          menu: {
-            title: 'Gráficos',
-            icon: 'ion-stats-bars',
-            selected: false,
-            expanded: false,
-            order: 400,
-          }
-        },
-        children: [
-          {
-            path: 'chartist-js',
-            data: {
-              menu: {
-                title: 'Pizza/Rosca',
               }
             }
           }

@@ -1,4 +1,4 @@
-import { BaThemeConfigProvider } from '../../../../theme';
+import {BaThemeConfigProvider} from '../../../../theme';
 import {ExpenseCustomer} from '../components/expense.customer';
 import {Injectable} from '@angular/core';
 import {PessoaJuridica} from '../../components/pessoa/pessoajuridica';
@@ -12,34 +12,13 @@ import {of} from 'rxjs/observable/of';
 @Injectable()
 export class ExpenseCustomerService {
 
-  constructor(private workService: WorkService, private dynamicService: DynamicService, private _baConfig:BaThemeConfigProvider) {
+  constructor(private workService: WorkService, private dynamicService: DynamicService, private _baConfig: BaThemeConfigProvider) {
 
-  }  
-  
+  }
+
   private expensesCustomer = new Subject<ExpenseCustomer[]>();
 
   expensesCustomerList$ = this.expensesCustomer.asObservable();
-  
-   private _data = {
-    simpleLineOptions: {
-      color: this._baConfig.get().colors.defaultText,
-      fullWidth: true,
-      height: '300px',
-      chartPadding: {
-        right: 40
-      }
-    },
-    simpleLineData: {
-      labels: ['Combustível', 'Segurança', 'Administração', 'Man. em geral', 'Despesa com pessoal'],
-      series: [
-        [10, 15, 25, 45, 70]        
-      ]
-    }    
-  }
-  
-  public getAll() {
-    return this._data;
-  }
 
   dataTableData: ExpenseCustomer[] = [
     {
@@ -89,7 +68,7 @@ export class ExpenseCustomerService {
   addExpenseCustomer(expenseCustomer: ExpenseCustomer) {
     this.getWork(expenseCustomer);
     this.getExpense(expenseCustomer);
-    this.dataTableData.push(expenseCustomer);   
+    this.dataTableData.push(expenseCustomer);
   }
 
   getExpenseCustomer(id: number): Observable<ExpenseCustomer> {
@@ -112,20 +91,28 @@ export class ExpenseCustomerService {
       .subscribe(expense => expenseCustomer.expense = expense)
   }
 
-  getData(): Observable<ExpenseCustomer[]> {    
+  getData(): Observable<ExpenseCustomer[]> {
     return this.expensesCustomerList$;
   }
 
-  getAExpensesCustomerByfFilter(idWork: number, idExpense: number): void {       
-    this.expensesCustomer.next(this.dataTableData.filter(item => !idExpense && item.work.id === idWork || (item.work.id === idWork && item.expense.id === idExpense)));    
-  }
-  
-  getAExpensesCustomerByWork(idWork: number): Observable<ExpenseCustomer[]> {    
-    return of(this.dataTableData.filter(item => item.work.id === idWork));    
+  getAExpensesCustomerByfFilter(idWork: number, idExpense: number): void {
+    this.expensesCustomer.next(this.dataTableData.filter(item => !idExpense && item.work.id === idWork || (item.work.id === idWork && item.expense.id === idExpense)));
   }
 
-  getAllExpensesCustomer(): Observable<ExpenseCustomer[]> {   
+  getAExpensesCustomerByWork(idWork: number): Observable<ExpenseCustomer[]> {
+    return of(this.dataTableData.filter(item => item.work.id === idWork));
+  }
+
+  getAllExpensesCustomer(): Observable<ExpenseCustomer[]> {
     return of(this.dataTableData);
+  }
+  
+  getAllExpenseCostumers(): Promise<ExpenseCustomer[]> {
+    return new Promise((resolve, reject) => {
+      setTimeout(() => {
+        resolve(this.dataTableData);
+      }, 2000);
+    });
   }
 
 

@@ -1,7 +1,8 @@
 import {Injectable} from '@angular/core';
 
-import {BaThemeConfigProvider} from '../../../../theme';
-import { ExpenseCustomer } from '../../../cadastros/expense-customer/components';
+import {BaThemeConfigProvider} from '../../../../../theme';
+import { ExpenseCustomer } from '../../../expense-customer/components';
+import { Work } from '../../../work/components/work';
 import { Chart } from '../chart/chart';
 
 @Injectable()
@@ -179,10 +180,10 @@ export class ChartistJsService {
     return this._data;
   }
   
-  public getDynamicData(data: ExpenseCustomer[]): Chart {   
+  public getDynamicData(data: Work[]): Chart {   
     const descriptions = data.map(function(a) {return a["description"];});
     console.log(descriptions);
-    const values = data.map(function(a) {return a["value"];}); 
+    const values = data.map(function(a) {return a["id"];}); 
 //    this._data.simpleLineData.labels = descriptions; 
     this._data.simplePieData.series=values;   
     this._data.labelsPieData.labels=descriptions;
