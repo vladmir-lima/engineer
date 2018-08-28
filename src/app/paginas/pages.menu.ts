@@ -85,8 +85,7 @@ export const PAGES_MENU = [
                 title: 'Gráficos',
                 icon: 'ion-stats-bars',
                 selected: false,
-                expanded: false,
-                order: 400,
+                expanded: false               
               }
             },
             children: [
