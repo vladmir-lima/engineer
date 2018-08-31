@@ -5,78 +5,68 @@ export class BaMsgCenterService {
 
   private _notifications = [
     {
-      name: 'Vlad',
-      text: 'Vlad posted a new article.',
-      time: '1 min ago'
+      name: 'Vladmir Lima',
+      text: 'Vlad post um novo artigo.',
+      time: '1 min atrás'
     },
     {
-      name: 'Kostya',
-      text: 'Kostya changed his contact information.',
-      time: '2 hrs ago'
+      name: 'Rogério Lecomte',
+      text: 'Rogério mudou suas informações de contato.',
+      time: '2 hrs atrás'
     },
     {
       image: 'assets/img/shopping-cart.svg',
-      text: 'New orders received.',
-      time: '5 hrs ago'
+      text: 'Nova obra (Jataí) foi cadastrada',
+      time: '5 hrs atrás'
     },
     {
       name: 'Andrey',
-      text: 'Andrey replied to your comment.',
-      time: '1 day ago'
+      text: 'Andrey respondeu o seu comentário.',
+      time: '1 dia ago'
     },
     {
-      name: 'Nasta',
-      text: 'Today is Nasta\'s birthday.',
-      time: '2 days ago'
+      name: 'Rogério Lecomte',
+      text: 'Rogério cadastrou uma nova despesa da obra em Santa Catarina',
+      time: '2 dias atrás'
     },
     {
       image: 'assets/img/comments.svg',
-      text: 'New comments on your post.',
-      time: '3 days ago'
+      text: 'Comentaram no seu post.',
+      time: '3 dias atrás'
     },
     {
-      name: 'Kostya',
-      text: 'Kostya invited you to join the event.',
-      time: '1 week ago'
+      name: 'Júlia',
+      text: 'Júlia convidou você para um evento',
+      time: '1 mês atrás'
     }
   ];
 
   private _messages = [
     {
-      name: 'Nasta',
-      text: 'After you get up and running, you can place Font Awesome icons just about...',
-      time: '1 min ago'
+      name: 'Vladmir Lima',
+      text: 'Ok, hoje no final da tarde irei cadastrá-las',
+      time: '1 min atrás'
     },
     {
-      name: 'Vlad',
-      text: 'You asked, Font Awesome delivers with 40 shiny new icons in version 4.2.',
-      time: '2 hrs ago'
+      name: 'Rogério',
+      text: 'Vladmir, precisamos cadastrar novas despesas para a obra de Santa Catarina',
+      time: '2 hrs atrás'
     },
     {
-      name: 'Kostya',
-      text: 'Want to request new icons? Here\'s how. Need vectors or want to use on the...',
-      time: '10 hrs ago'
+      name: 'Vladmir Lima',
+      text: 'Rogério, a obra de Jataí foi finalizada',
+      time: '10 hrs atrás'
     },
     {
-      name: 'Andrey',
-      text: 'Explore your passions and discover new ones by getting involved. Stretch your...',
-      time: '1 day ago'
+      name: 'Vladmir Lima',
+      text: 'Opa, que maravilha! Tudo por conta? kkkkkkk',
+      time: '2 dias atrás'
     },
     {
-      name: 'Nasta',
-      text: 'Get to know who we are - from the inside out. From our history and culture, to the...',
-      time: '1 day ago'
-    },
-    {
-      name: 'Kostya',
-      text: 'Need some support to reach your goals? Apply for scholarships across a variety of...',
-      time: '2 days ago'
-    },
-    {
-      name: 'Vlad',
-      text: 'Wrap the dropdown\'s trigger and the dropdown menu within .dropdown, or...',
-      time: '1 week ago'
-    }
+      name: 'Júlia',
+      text: 'Galera, terá um churrasco na minha casa no próximo sábado \o/',
+      time: '2 dias atrás'
+    },    
   ];
 
   public getMessages():Array<Object> {
