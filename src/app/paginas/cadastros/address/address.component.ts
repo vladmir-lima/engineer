@@ -60,6 +60,7 @@ export class AddressComponent implements OnInit {
   }
 
   getGoogleMapsByCep(cep: string) {
+    alert(cep);
     this.getMap(this.setMap, cep);
   }
 
